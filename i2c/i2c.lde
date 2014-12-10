@@ -1,0 +1,6 @@
+Advisory[1207]   : some of the command line options you are using are now obsolete
+Advisory[1208]   : use --help option or refer to the user manual for option details
+Error[482]   : symbol "_main" multiply defined in "F:\pic projects\i2c\i2c.obj"
+Error[482]   : symbol "_main" multiply defined in "F:\pic projects\i2c\i2c.obj"
+Error[500]   : undefined symbols:
+	_delay_ms (F:\pic projects\i2c\eeprom.obj)_i2c_rtc_read (F:\pic projects\i2c\eeprom.obj)

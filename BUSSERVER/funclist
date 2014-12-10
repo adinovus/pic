@@ -1,0 +1,10 @@
+_delay: CODE, 4044 0 52
+_display: CODE, 1882 0 61
+_main: CODE, 21 0 1495
+_lcdcmd: CODE, 4024 0 20
+_TXS: CODE, 1943 0 55
+_uart_init: CODE, 4007 0 17
+_receive: CODE, 1818 0 64
+_lcddata: CODE, 1516 0 20
+_TX: CODE, 2033 0 14
+Total: 1798

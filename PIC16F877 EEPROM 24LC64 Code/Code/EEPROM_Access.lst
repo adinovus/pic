@@ -1,0 +1,1982 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Sat Dec 15 17:50:11 2012
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F877
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	config,global,class=CONFIG,delta=2
+     5                           	psect	idataBANK0,global,class=CODE,delta=2
+     6                           	psect	cinit,global,class=CODE,delta=2
+     7                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     9                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    10                           	psect	maintext,global,class=CODE,delta=2
+    11                           	psect	text433,local,class=CODE,delta=2
+    12                           	psect	text438,local,class=CODE,delta=2
+    13                           	psect	text447,local,class=CODE,delta=2
+    14                           	psect	text448,local,class=CODE,delta=2
+    15                           	psect	pa_nodes,global,class=CODE,delta=2
+    16                           	dabs	1,0x7E,2
+    17  000A                     	;#
+    18                           
+    19                           	psect	config
+    20  2007  FF72               	dw	65394	;#
+    21                           
+    22                           	psect	idataBANK0
+    23  0000                     __pidataBANK0:	
+    24  0006                     _PORTB	set	6
+    25  0013                     _SSPBUF	set	19
+    26  0014                     _SSPCON	set	20
+    27  0030                     _RB0	set	48
+    28  0031                     _RB1	set	49
+    29  0034                     _RB4	set	52
+    30  0035                     _RB5	set	53
+    31  0036                     _RB6	set	54
+    32  0037                     _RB7	set	55
+    33  0063                     _SSPIF	set	99
+    34  0093                     _SSPADD	set	147
+    35  0094                     _SSPSTAT	set	148
+    36  048D                     _ACKDT	set	1165
+    37  048C                     _ACKEN	set	1164
+    38  048E                     _ACKSTAT	set	1166
+    39  048A                     _PEN	set	1162
+    40  048B                     _RCEN	set	1163
+    41  0489                     _RSEN	set	1161
+    42  0488                     _SEN	set	1160
+    43  0430                     _TRISB0	set	1072
+    44  0431                     _TRISB1	set	1073
+    45  0434                     _TRISB4	set	1076
+    46  0435                     _TRISB5	set	1077
+    47  0436                     _TRISB6	set	1078
+    48  0437                     _TRISB7	set	1079
+    49  043B                     _TRISC3	set	1083
+    50  043C                     _TRISC4	set	1084
+    51                           
+    52                           	psect	cinit
+    53  05EB                     start_initialization:	
+    54                           
+    55                           ;initializer for main@F1062
+    56  05EB  3053               	movlw	83
+    57  05EC  00A9               	movwf	__pdataBANK0& (0+127)
+    58  05ED  3061               	movlw	97
+    59  05EE  00AA               	movwf	(__pdataBANK0+1)& (0+127)
+    60  05EF  3065               	movlw	101
+    61  05F0  00AB               	movwf	(__pdataBANK0+2)& (0+127)
+    62  05F1  00AC               	movwf	(__pdataBANK0+3)& (0+127)
+    63  05F2                     end_of_initialization:	
+    64                           ;End of C runtime variable initialization code
+    65                           
+    66  05F2  0183               	clrf	3
+    67  05F3  120A  118A  2E02   	ljmp	_main	;jump to C main() function
+    68                           
+    69                           	psect	dataBANK0
+    70  0029                     __pdataBANK0:	
+    71  0029                     main@F1062:	
+    72  0029                     	ds	4
+    73                           
+    74                           	psect	cstackCOMMON
+    75  0070                     __pcstackCOMMON:	
+    76  0070                     ?_InitI2C:	
+    77  0070                     ??_InitI2C:	
+    78                           ; 0 bytes @ 0x0
+    79                           
+    80  0070                     ?_I2C_Start:	
+    81                           ; 0 bytes @ 0x0
+    82                           
+    83  0070                     ??_I2C_Start:	
+    84                           ; 0 bytes @ 0x0
+    85                           
+    86  0070                     ?_I2C_ReStart:	
+    87                           ; 0 bytes @ 0x0
+    88                           
+    89  0070                     ??_I2C_ReStart:	
+    90                           ; 0 bytes @ 0x0
+    91                           
+    92  0070                     ?_I2C_Stop:	
+    93                           ; 0 bytes @ 0x0
+    94                           
+    95  0070                     ??_I2C_Stop:	
+    96                           ; 0 bytes @ 0x0
+    97                           
+    98  0070                     ?_I2C_Send_ACK:	
+    99                           ; 0 bytes @ 0x0
+   100                           
+   101  0070                     ??_I2C_Send_ACK:	
+   102                           ; 0 bytes @ 0x0
+   103                           
+   104  0070                     ?_I2C_Send_NACK:	
+   105                           ; 0 bytes @ 0x0
+   106                           
+   107  0070                     ??_I2C_Send_NACK:	
+   108                           ; 0 bytes @ 0x0
+   109                           
+   110  0070                     ?_I2C_Write_Byte:	
+   111                           ; 0 bytes @ 0x0
+   112                           
+   113  0070                     ??_I2C_Write_Byte:	
+   114                           ; 1 bit 
+   115                           
+   116  0070                     ??_I2C_Read_Byte:	
+   117                           ; 0 bytes @ 0x0
+   118                           
+   119  0070                     ?_ToggleEpinOfLCD:	
+   120                           ; 0 bytes @ 0x0
+   121                           
+   122  0070                     ??_ToggleEpinOfLCD:	
+   123                           ; 0 bytes @ 0x0
+   124                           
+   125  0070                     ?_WriteCommandToLCD:	
+   126                           ; 0 bytes @ 0x0
+   127                           
+   128  0070                     ?_WriteDataToLCD:	
+   129                           ; 0 bytes @ 0x0
+   130                           
+   131  0070                     ?_InitLCD:	
+   132                           ; 0 bytes @ 0x0
+   133                           
+   134  0070                     ?_main:	
+   135                           ; 0 bytes @ 0x0
+   136                           
+   137  0070                     ?_I2C_Read_Byte:	
+   138                           ; 0 bytes @ 0x0
+   139                           
+   140  0070                     I2C_Write_Byte@Byte:	
+   141                           ; 1 bytes @ 0x0
+   142                           
+   143                           
+   144                           ; 1 bytes @ 0x0
+   145  0070                     	ds	1
+   146  0071                     ?_Write_Byte_To_24LC64_EEPROM:	
+   147  0071                     ?_Write_Page_To_24LC64_EEPROM:	
+   148                           ; 0 bytes @ 0x1
+   149                           
+   150  0071                     ?_Read_Bytes_From_24LC64_EEPROM:	
+   151                           ; 0 bytes @ 0x1
+   152                           
+   153  0071                     ?_Read_Byte_From_24LC64_EEPROM:	
+   154                           ; 0 bytes @ 0x1
+   155                           
+   156  0071                     Write_Byte_To_24LC64_EEPROM@Address:	
+   157                           ; 1 bytes @ 0x1
+   158                           
+   159  0071                     Read_Byte_From_24LC64_EEPROM@Address:	
+   160                           ; 2 bytes @ 0x1
+   161                           
+   162  0071                     Write_Page_To_24LC64_EEPROM@Address:	
+   163                           ; 2 bytes @ 0x1
+   164                           
+   165  0071                     Read_Bytes_From_24LC64_EEPROM@Address:	
+   166                           ; 2 bytes @ 0x1
+   167                           
+   168                           
+   169                           ; 2 bytes @ 0x1
+   170  0071                     	ds	1
+   171  0072                     ??_WriteCommandToLCD:	
+   172  0072                     ??_WriteDataToLCD:	
+   173                           ; 0 bytes @ 0x2
+   174                           
+   175  0072                     WriteCommandToLCD@Command:	
+   176                           ; 0 bytes @ 0x2
+   177                           
+   178  0072                     WriteDataToLCD@LCDChar:	
+   179                           ; 1 bytes @ 0x2
+   180                           
+   181                           
+   182                           ; 1 bytes @ 0x2
+   183  0072                     	ds	1
+   184  0073                     ??_Read_Byte_From_24LC64_EEPROM:	
+   185  0073                     ??_InitLCD:	
+   186                           ; 0 bytes @ 0x3
+   187                           
+   188  0073                     Write_Byte_To_24LC64_EEPROM@DataByte:	
+   189                           ; 0 bytes @ 0x3
+   190                           
+   191  0073                     Read_Byte_From_24LC64_EEPROM@Byte:	
+   192                           ; 1 bytes @ 0x3
+   193                           
+   194  0073                     Write_Page_To_24LC64_EEPROM@pData:	
+   195                           ; 1 bytes @ 0x3
+   196                           
+   197  0073                     Read_Bytes_From_24LC64_EEPROM@pData:	
+   198                           ; 1 bytes @ 0x3
+   199                           
+   200                           
+   201                           ; 1 bytes @ 0x3
+   202  0073                     	ds	1
+   203  0074                     ??_Write_Byte_To_24LC64_EEPROM:	
+   204  0074                     Write_Page_To_24LC64_EEPROM@NoOfBytes:	
+   205                           ; 0 bytes @ 0x4
+   206                           
+   207  0074                     Read_Bytes_From_24LC64_EEPROM@NoOfBytes:	
+   208                           ; 1 bytes @ 0x4
+   209                           
+   210                           
+   211                           ; 2 bytes @ 0x4
+   212  0074                     	ds	1
+   213  0075                     ??_Write_Page_To_24LC64_EEPROM:	
+   214                           
+   215                           ; 0 bytes @ 0x5
+   216  0075                     	ds	1
+   217  0076                     ??_Read_Bytes_From_24LC64_EEPROM:	
+   218                           
+   219                           ; 0 bytes @ 0x6
+   220  0076                     	ds	1
+   221  0077                     Write_Page_To_24LC64_EEPROM@i:	
+   222  0077                     Read_Bytes_From_24LC64_EEPROM@i:	
+   223                           ; 2 bytes @ 0x7
+   224                           
+   225                           
+   226                           ; 2 bytes @ 0x7
+   227  0077                     	ds	2
+   228  0079                     ??_main:	
+   229                           
+   230                           	psect	cstackBANK0
+   231  0020                     __pcstackBANK0:	
+   232                           ; 0 bytes @ 0x9
+   233                           
+   234  0020                     main@TxArray:	
+   235                           
+   236                           ; 4 bytes @ 0x0
+   237  0020                     	ds	4
+   238  0024                     main@RxArray:	
+   239                           
+   240                           ; 4 bytes @ 0x4
+   241  0024                     	ds	4
+   242  0028                     main@RxByte:	
+   243                           
+   244                           ; 1 bytes @ 0x8
+   245  0028                     	ds	1
+   246                           
+   247                           	psect	maintext
+   248  0602                     __pmaintext:	
+   249 ;;Data sizes: Strings 0, constant 0, data 4, bss 0, persistent 0 stack 0
+   250 ;;Auto spaces:   Size  Autos    Used
+   251 ;; COMMON          14      9       9
+   252 ;; BANK0           80      9      13
+   253 ;; BANK1           80      0       0
+   254 ;; BANK3           96      0       0
+   255 ;; BANK2           96      0       0
+   256 ;;
+   257 ;; Pointer list with targets:
+   258 ;; Read_Bytes_From_24LC64_EEPROM@pData	PTR unsigned char  size(1) Largest target is 4
+   259 ;;		 -> main@RxArray(BANK0[4]), 
+   260 ;;
+   261 ;; Write_Page_To_24LC64_EEPROM@pData	PTR unsigned char  size(1) Largest target is 4
+   262 ;;		 -> main@TxArray(BANK0[4]), 
+   263 ;;
+   264 ;;
+   265 ;; Critical Paths under _main in COMMON
+   266 ;;
+   267 ;;   _main->_Write_Page_To_24LC64_EEPROM
+   268 ;;   _main->_Read_Bytes_From_24LC64_EEPROM
+   269 ;;   _InitLCD->_WriteCommandToLCD
+   270 ;;   _WriteDataToLCD->_ToggleEpinOfLCD
+   271 ;;   _WriteCommandToLCD->_ToggleEpinOfLCD
+   272 ;;   _Read_Bytes_From_24LC64_EEPROM->_I2C_Write_Byte
+   273 ;;   _Write_Page_To_24LC64_EEPROM->_I2C_Write_Byte
+   274 ;;   _Read_Byte_From_24LC64_EEPROM->_I2C_Write_Byte
+   275 ;;   _Write_Byte_To_24LC64_EEPROM->_I2C_Write_Byte
+   276 ;;
+   277 ;; Critical Paths under _main in BANK0
+   278 ;;
+   279 ;;   None.
+   280 ;;
+   281 ;; Critical Paths under _main in BANK1
+   282 ;;
+   283 ;;   None.
+   284 ;;
+   285 ;; Critical Paths under _main in BANK3
+   286 ;;
+   287 ;;   None.
+   288 ;;
+   289 ;; Critical Paths under _main in BANK2
+   290 ;;
+   291 ;;   None.
+   292 ;;
+   293 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   294 ;;
+   295 ;;
+   296 ;;Call Graph Tables:
+   297 ;;
+   298 ;; ---------------------------------------------------------------------------------
+   299 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   300 ;; ---------------------------------------------------------------------------------
+   301 ;; (0) _main                                                 9     9      0     766
+   302 ;;                                              0 BANK0      9     9      0
+   303 ;;                            _InitLCD
+   304 ;;                            _InitI2C
+   305 ;;        _Write_Byte_To_24LC64_EEPROM
+   306 ;;       _Read_Byte_From_24LC64_EEPROM
+   307 ;;        _Write_Page_To_24LC64_EEPROM
+   308 ;;      _Read_Bytes_From_24LC64_EEPROM
+   309 ;;                     _WriteDataToLCD
+   310 ;; ---------------------------------------------------------------------------------
+   311 ;; (1) _InitLCD                                              3     3      0      44
+   312 ;;                                              3 COMMON     3     3      0
+   313 ;;                    _ToggleEpinOfLCD
+   314 ;;                  _WriteCommandToLCD
+   315 ;; ---------------------------------------------------------------------------------
+   316 ;; (1) _WriteDataToLCD                                       1     1      0      44
+   317 ;;                                              2 COMMON     1     1      0
+   318 ;;                    _ToggleEpinOfLCD
+   319 ;; ---------------------------------------------------------------------------------
+   320 ;; (2) _WriteCommandToLCD                                    1     1      0      44
+   321 ;;                                              2 COMMON     1     1      0
+   322 ;;                    _ToggleEpinOfLCD
+   323 ;; ---------------------------------------------------------------------------------
+   324 ;; (1) _Read_Bytes_From_24LC64_EEPROM                        8     3      5     178
+   325 ;;                                              1 COMMON     8     3      5
+   326 ;;                          _I2C_Start
+   327 ;;                        _I2C_ReStart
+   328 ;;                     _I2C_Write_Byte
+   329 ;;                      _I2C_Read_Byte
+   330 ;;                       _I2C_Send_ACK
+   331 ;;                      _I2C_Send_NACK
+   332 ;;                           _I2C_Stop
+   333 ;; ---------------------------------------------------------------------------------
+   334 ;; (1) _Write_Page_To_24LC64_EEPROM                          8     4      4     156
+   335 ;;                                              1 COMMON     8     4      4
+   336 ;;                          _I2C_Start
+   337 ;;                        _I2C_ReStart
+   338 ;;                     _I2C_Write_Byte
+   339 ;;                           _I2C_Stop
+   340 ;; ---------------------------------------------------------------------------------
+   341 ;; (1) _Read_Byte_From_24LC64_EEPROM                         3     1      2      90
+   342 ;;                                              1 COMMON     3     1      2
+   343 ;;                          _I2C_Start
+   344 ;;                        _I2C_ReStart
+   345 ;;                     _I2C_Write_Byte
+   346 ;;                      _I2C_Read_Byte
+   347 ;;                      _I2C_Send_NACK
+   348 ;;                           _I2C_Stop
+   349 ;; ---------------------------------------------------------------------------------
+   350 ;; (1) _Write_Byte_To_24LC64_EEPROM                          3     0      3      88
+   351 ;;                                              1 COMMON     3     0      3
+   352 ;;                          _I2C_Start
+   353 ;;                        _I2C_ReStart
+   354 ;;                     _I2C_Write_Byte
+   355 ;;                           _I2C_Stop
+   356 ;; ---------------------------------------------------------------------------------
+   357 ;; (2) _ToggleEpinOfLCD                                      2     2      0       0
+   358 ;;                                              0 COMMON     2     2      0
+   359 ;; ---------------------------------------------------------------------------------
+   360 ;; (2) _I2C_Read_Byte                                        0     0      0       0
+   361 ;; ---------------------------------------------------------------------------------
+   362 ;; (2) _I2C_Write_Byte                                       1     1      0      22
+   363 ;;                                              0 COMMON     1     1      0
+   364 ;; ---------------------------------------------------------------------------------
+   365 ;; (2) _I2C_Send_NACK                                        0     0      0       0
+   366 ;; ---------------------------------------------------------------------------------
+   367 ;; (2) _I2C_Send_ACK                                         0     0      0       0
+   368 ;; ---------------------------------------------------------------------------------
+   369 ;; (2) _I2C_Stop                                             0     0      0       0
+   370 ;; ---------------------------------------------------------------------------------
+   371 ;; (2) _I2C_ReStart                                          0     0      0       0
+   372 ;; ---------------------------------------------------------------------------------
+   373 ;; (2) _I2C_Start                                            0     0      0       0
+   374 ;; ---------------------------------------------------------------------------------
+   375 ;; (1) _InitI2C                                              0     0      0       0
+   376 ;; ---------------------------------------------------------------------------------
+   377 ;; Estimated maximum stack depth 2
+   378 ;; ---------------------------------------------------------------------------------
+   379 ;; Call Graph Graphs:
+   380 ;; _main (ROOT)
+   381 ;;   _InitLCD
+   382 ;;     _ToggleEpinOfLCD
+   383 ;;     _WriteCommandToLCD
+   384 ;;       _ToggleEpinOfLCD
+   385 ;;   _InitI2C
+   386 ;;   _Write_Byte_To_24LC64_EEPROM
+   387 ;;     _I2C_Start
+   388 ;;     _I2C_ReStart
+   389 ;;     _I2C_Write_Byte
+   390 ;;     _I2C_Stop
+   391 ;;   _Read_Byte_From_24LC64_EEPROM
+   392 ;;     _I2C_Start
+   393 ;;     _I2C_ReStart
+   394 ;;     _I2C_Write_Byte
+   395 ;;     _I2C_Read_Byte
+   396 ;;     _I2C_Send_NACK
+   397 ;;     _I2C_Stop
+   398 ;;   _Write_Page_To_24LC64_EEPROM
+   399 ;;     _I2C_Start
+   400 ;;     _I2C_ReStart
+   401 ;;     _I2C_Write_Byte
+   402 ;;     _I2C_Stop
+   403 ;;   _Read_Bytes_From_24LC64_EEPROM
+   404 ;;     _I2C_Start
+   405 ;;     _I2C_ReStart
+   406 ;;     _I2C_Write_Byte
+   407 ;;     _I2C_Read_Byte
+   408 ;;     _I2C_Send_ACK
+   409 ;;     _I2C_Send_NACK
+   410 ;;     _I2C_Stop
+   411 ;;   _WriteDataToLCD
+   412 ;;     _ToggleEpinOfLCD
+   413 ;;
+   414 ;; Address spaces:
+   415 ;;Name               Size   Autos  Total    Cost      Usage
+   416 ;;BANK3               60      0       0       9        0.0%
+   417 ;;BITBANK3            60      0       0       8        0.0%
+   418 ;;SFR3                 0      0       0       4        0.0%
+   419 ;;BITSFR3              0      0       0       4        0.0%
+   420 ;;BANK2               60      0       0      11        0.0%
+   421 ;;BITBANK2            60      0       0      10        0.0%
+   422 ;;SFR2                 0      0       0       5        0.0%
+   423 ;;BITSFR2              0      0       0       5        0.0%
+   424 ;;SFR1                 0      0       0       2        0.0%
+   425 ;;BITSFR1              0      0       0       2        0.0%
+   426 ;;BANK1               50      0       0       7        0.0%
+   427 ;;BITBANK1            50      0       0       6        0.0%
+   428 ;;CODE                 0      0       0       0        0.0%
+   429 ;;DATA                 0      0      19      12        0.0%
+   430 ;;ABS                  0      0      16       3        0.0%
+   431 ;;NULL                 0      0       0       0        0.0%
+   432 ;;STACK                0      0       3       2        0.0%
+   433 ;;BANK0               50      9       D       5       16.3%
+   434 ;;BITBANK0            50      0       0       4        0.0%
+   435 ;;SFR0                 0      0       0       1        0.0%
+   436 ;;BITSFR0              0      0       0       1        0.0%
+   437 ;;COMMON               E      9       9       1       64.3%
+   438 ;;BITCOMMON            E      0       0       0        0.0%
+   439 ;;EEDATA             100      0       0       0        0.0%
+   440                           
+   441                           
+   442 ;; *************** function _main *****************
+   443 ;; Defined at:
+   444 ;;		line 16 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\Main.c"
+   445 ;; Parameters:    Size  Location     Type
+   446 ;;		None
+   447 ;; Auto vars:     Size  Location     Type
+   448 ;;  RxArray         4    4[BANK0 ] unsigned char [4]
+   449 ;;  TxArray         4    0[BANK0 ] unsigned char [4]
+   450 ;;  RxByte          1    8[BANK0 ] unsigned char 
+   451 ;; Return value:  Size  Location     Type
+   452 ;;		None               void
+   453 ;; Registers used:
+   454 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   455 ;; Tracked objects:
+   456 ;;		On entry : 17F/0
+   457 ;;		On exit  : 0/0
+   458 ;;		Unchanged: 0/0
+   459 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   460 ;;      Params:         0       0       0       0       0
+   461 ;;      Locals:         0       9       0       0       0
+   462 ;;      Temps:          0       0       0       0       0
+   463 ;;      Totals:         0       9       0       0       0
+   464 ;;Total ram usage:        9 bytes
+   465 ;; Hardware stack levels required when called:    3
+   466 ;; This function calls:
+   467 ;;		_InitLCD
+   468 ;;		_InitI2C
+   469 ;;		_Write_Byte_To_24LC64_EEPROM
+   470 ;;		_Read_Byte_From_24LC64_EEPROM
+   471 ;;		_Write_Page_To_24LC64_EEPROM
+   472 ;;		_Read_Bytes_From_24LC64_EEPROM
+   473 ;;		_WriteDataToLCD
+   474 ;; This function is called by:
+   475 ;;		Startup code after reset
+   476 ;; This function uses a non-reentrant model
+   477 ;;
+   478  0602                     _main:	
+   479                           
+   480                           ;Main.c: 18: unsigned char TxArray[4] = { 'S', 'a', 'e', 'e' };
+   481                           
+   482                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   483  0602  082C               	movf	main@F1062+3,w
+   484  0603  00A3               	movwf	main@TxArray+3
+   485  0604  082B               	movf	main@F1062+2,w
+   486  0605  00A2               	movwf	main@TxArray+2
+   487  0606  082A               	movf	main@F1062+1,w
+   488  0607  00A1               	movwf	main@TxArray+1
+   489  0608  0829               	movf	main@F1062,w
+   490  0609  00A0               	movwf	main@TxArray
+   491                           
+   492                           ;Main.c: 19: unsigned char RxArray[4] = { 0 };
+   493  060A  01A4               	clrf	main@RxArray
+   494  060B  01A5               	clrf	main@RxArray+1
+   495  060C  01A6               	clrf	main@RxArray+2
+   496  060D  01A7               	clrf	main@RxArray+3
+   497                           
+   498                           ;Main.c: 22: InitLCD();
+   499  060E  120A  118A  267C   	fcall	_InitLCD
+      +       120A  118A         
+   500                           
+   501                           ;Main.c: 25: InitI2C();
+   502  0613  120A  118A  25F6   	fcall	_InitI2C
+      +       120A  118A         
+   503  0618  3064               	movlw	100
+   504                           
+   505                           ;Main.c: 28: Write_Byte_To_24LC64_EEPROM(0x0001, 'd');
+   506  0619  01F1               	clrf	?_Write_Byte_To_24LC64_EEPROM
+   507  061A  0AF1               	incf	?_Write_Byte_To_24LC64_EEPROM,f
+   508  061B  01F2               	clrf	?_Write_Byte_To_24LC64_EEPROM+1
+   509  061C  00F3               	movwf	?_Write_Byte_To_24LC64_EEPROM+2
+   510  061D  120A  118A  2713   	fcall	_Write_Byte_To_24LC64_EEPROM
+      +       120A  118A         
+   511                           
+   512                           ;Main.c: 30: RxByte = Read_Byte_From_24LC64_EEPROM(0x0001);
+   513  0622  01F1               	clrf	?_Read_Byte_From_24LC64_EEPROM
+   514  0623  0AF1               	incf	?_Read_Byte_From_24LC64_EEPROM,f
+   515  0624  01F2               	clrf	?_Read_Byte_From_24LC64_EEPROM+1
+   516  0625  120A  118A  272D   	fcall	_Read_Byte_From_24LC64_EEPROM
+      +       120A  118A         
+   517  062A  00A8               	movwf	main@RxByte
+   518                           
+   519                           ;Main.c: 33: Write_Page_To_24LC64_EEPROM(0x0020, TxArray, 4);
+   520  062B  3020               	movlw	32
+   521  062C  00F1               	movwf	?_Write_Page_To_24LC64_EEPROM
+   522  062D  3020               	movlw	main@TxArray& (0+255)
+   523  062E  01F2               	clrf	?_Write_Page_To_24LC64_EEPROM+1
+   524  062F  00F3               	movwf	?_Write_Page_To_24LC64_EEPROM+2
+   525  0630  3004               	movlw	4
+   526  0631  00F4               	movwf	?_Write_Page_To_24LC64_EEPROM+3
+   527  0632  120A  118A  2753   	fcall	_Write_Page_To_24LC64_EEPROM
+      +       120A  118A         
+   528                           
+   529                           ;Main.c: 35: Read_Bytes_From_24LC64_EEPROM(0x0020, RxArray, 4);
+   530  0637  3020               	movlw	32
+   531  0638  00F1               	movwf	?_Read_Bytes_From_24LC64_EEPROM
+   532  0639  3024               	movlw	main@RxArray& (0+255)
+   533  063A  01F2               	clrf	?_Read_Bytes_From_24LC64_EEPROM+1
+   534  063B  00F3               	movwf	?_Read_Bytes_From_24LC64_EEPROM+2
+   535  063C  3004               	movlw	4
+   536  063D  00F4               	movwf	?_Read_Bytes_From_24LC64_EEPROM+3
+   537  063E  01F5               	clrf	?_Read_Bytes_From_24LC64_EEPROM+4
+   538  063F  120A  118A  2783   	fcall	_Read_Bytes_From_24LC64_EEPROM
+      +       120A  118A         
+   539                           
+   540                           ;Main.c: 38: WriteDataToLCD(RxArray[0]);
+   541  0644  0824               	movf	main@RxArray,w
+   542  0645  120A  118A  266B   	fcall	_WriteDataToLCD
+      +       120A  118A         
+   543                           
+   544                           ;Main.c: 39: WriteDataToLCD(RxArray[1]);
+   545  064A  1283               	bcf	3,5	;RP0=0, select bank0
+   546  064B  1303               	bcf	3,6	;RP1=0, select bank0
+   547  064C  0825               	movf	main@RxArray+1,w
+   548  064D  120A  118A  266B   	fcall	_WriteDataToLCD
+      +       120A  118A         
+   549                           
+   550                           ;Main.c: 40: WriteDataToLCD(RxArray[2]);
+   551  0652  1283               	bcf	3,5	;RP0=0, select bank0
+   552  0653  1303               	bcf	3,6	;RP1=0, select bank0
+   553  0654  0826               	movf	main@RxArray+2,w
+   554  0655  120A  118A  266B   	fcall	_WriteDataToLCD
+      +       120A  118A         
+   555                           
+   556                           ;Main.c: 41: WriteDataToLCD(RxArray[3]);
+   557  065A  1283               	bcf	3,5	;RP0=0, select bank0
+   558  065B  1303               	bcf	3,6	;RP1=0, select bank0
+   559  065C  0827               	movf	main@RxArray+3,w
+   560  065D  120A  118A  266B   	fcall	_WriteDataToLCD
+      +       120A  118A         
+   561                           
+   562                           ;Main.c: 42: WriteDataToLCD(RxByte);
+   563  0662  1283               	bcf	3,5	;RP0=0, select bank0
+   564  0663  1303               	bcf	3,6	;RP1=0, select bank0
+   565  0664  0828               	movf	main@RxByte,w
+   566  0665  120A  118A  266B   	fcall	_WriteDataToLCD
+      +       120A  118A         
+   567  066A                     l2004:	
+   568                           ;Main.c: 45: {
+   569                           
+   570  066A  2E6A               	goto	l2004
+   571  066B                     __end_of_main:	
+   572                           
+   573                           	psect	text433
+   574  066B                     __ptext433:	
+   575 ;; =============== function _InitLCD ends ============
+   576                           
+   577                           
+   578 ;; *************** function _WriteDataToLCD *****************
+   579 ;; Defined at:
+   580 ;;		line 28 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\LCD.c"
+   581 ;; Parameters:    Size  Location     Type
+   582 ;;  LCDChar         1    wreg     unsigned char 
+   583 ;; Auto vars:     Size  Location     Type
+   584 ;;  LCDChar         1    2[COMMON] unsigned char 
+   585 ;; Return value:  Size  Location     Type
+   586 ;;		None               void
+   587 ;; Registers used:
+   588 ;;		wreg, status,2, status,0, pclath, cstack
+   589 ;; Tracked objects:
+   590 ;;		On entry : 60/0
+   591 ;;		On exit  : 0/0
+   592 ;;		Unchanged: 0/0
+   593 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   594 ;;      Params:         0       0       0       0       0
+   595 ;;      Locals:         1       0       0       0       0
+   596 ;;      Temps:          0       0       0       0       0
+   597 ;;      Totals:         1       0       0       0       0
+   598 ;;Total ram usage:        1 bytes
+   599 ;; Hardware stack levels used:    1
+   600 ;; Hardware stack levels required when called:    1
+   601 ;; This function calls:
+   602 ;;		_ToggleEpinOfLCD
+   603 ;; This function is called by:
+   604 ;;		_main
+   605 ;; This function uses a non-reentrant model
+   606 ;;
+   607  066B                     _WriteDataToLCD:	
+   608                           
+   609                           ; Regs used in _WriteDataToLCD: [wreg+status,2+status,0+pclath+cstack]
+   610                           ;WriteDataToLCD@LCDChar stored from wreg
+   611  066B  00F2               	movwf	WriteDataToLCD@LCDChar
+   612  066C  300F               	movlw	15
+   613                           
+   614                           ;LCD.c: 29: RB1 = 1;
+   615  066D  1486               	bsf	6,1
+   616                           
+   617                           ;LCD.c: 31: PORTB &= 0x0F;
+   618  066E  0586               	andwf	6,f	;volatile
+   619                           
+   620                           ;LCD.c: 32: PORTB |= (LCDChar&0xF0);
+   621  066F  0872               	movf	WriteDataToLCD@LCDChar,w
+   622  0670  39F0               	andlw	240
+   623  0671  0486               	iorwf	6,f	;volatile
+   624                           
+   625                           ;LCD.c: 33: ToggleEpinOfLCD();
+   626  0672  26DA  120A  118A   	fcall	_ToggleEpinOfLCD
+   627                           
+   628                           ;LCD.c: 35: PORTB &= 0x0F;
+   629  0675  300F               	movlw	15
+   630  0676  2710               	call	PL4	;select bank 0
+   631  0677  0586               	andwf	6,f	;volatile
+   632                           
+   633                           ;LCD.c: 36: PORTB |= ((LCDChar<<4)&0xF0);
+   634  0678  0E72               	swapf	WriteDataToLCD@LCDChar,w
+   635  0679  39F0               	andlw	240
+   636  067A  0486               	iorwf	6,f	;volatile
+   637                           
+   638                           ;LCD.c: 37: ToggleEpinOfLCD();
+   639  067B  2EDA               	ljmp	l3959
+   640  067C                     __end_of_WriteDataToLCD:	
+   641  067C                     __ptext432:	
+   642 ;; =============== function _main ends ============
+   643                           
+   644                           
+   645 ;; *************** function _InitLCD *****************
+   646 ;; Defined at:
+   647 ;;		line 42 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\LCD.c"
+   648 ;; Parameters:    Size  Location     Type
+   649 ;;		None
+   650 ;; Auto vars:     Size  Location     Type
+   651 ;;		None
+   652 ;; Return value:  Size  Location     Type
+   653 ;;		None               void
+   654 ;; Registers used:
+   655 ;;		wreg, status,2, status,0, pclath, cstack
+   656 ;; Tracked objects:
+   657 ;;		On entry : 17F/0
+   658 ;;		On exit  : 0/0
+   659 ;;		Unchanged: 0/0
+   660 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   661 ;;      Params:         0       0       0       0       0
+   662 ;;      Locals:         0       0       0       0       0
+   663 ;;      Temps:          3       0       0       0       0
+   664 ;;      Totals:         3       0       0       0       0
+   665 ;;Total ram usage:        3 bytes
+   666 ;; Hardware stack levels used:    1
+   667 ;; Hardware stack levels required when called:    2
+   668 ;; This function calls:
+   669 ;;		_ToggleEpinOfLCD
+   670 ;;		_WriteCommandToLCD
+   671 ;; This function is called by:
+   672 ;;		_main
+   673 ;; This function uses a non-reentrant model
+   674 ;;
+   675  067C                     _InitLCD:	
+   676                           
+   677                           ;LCD.c: 44: RB0 = 0;
+   678                           
+   679                           ; Regs used in _InitLCD: [wreg+status,2+status,0+pclath+cstack]
+   680                           
+   681                           ;LCD.c: 45: RB1 = 0;
+   682                           
+   683                           ;LCD.c: 46: RB4 = 0;
+   684                           
+   685                           ;LCD.c: 47: RB5 = 0;
+   686                           
+   687                           ;LCD.c: 48: RB6 = 0;
+   688                           
+   689                           ;LCD.c: 49: RB7 = 0;
+   690  067C  2709  120A  118A   	fcall	PL3	;call to abstracted procedure
+   691                           
+   692                           ;LCD.c: 50: TRISB0 = 0;
+   693  067F  1683               	bsf	3,5	;RP0=1, select bank1
+   694  0680  3002               	movlw	2
+   695                           
+   696                           ;LCD.c: 51: TRISB1 = 0;
+   697                           
+   698                           ;LCD.c: 52: TRISB4 = 0;
+   699                           
+   700                           ;LCD.c: 53: TRISB5 = 0;
+   701                           
+   702                           ;LCD.c: 54: TRISB6 = 0;
+   703                           
+   704                           ;LCD.c: 55: TRISB7 = 0;
+   705  0681  2709  120A  118A   	fcall	PL3	;call to abstracted procedure
+   706                           
+   707                           ;LCD.c: 58: _delay((unsigned long)((40)*(20000000/4000.0)));
+   708  0684  00F5               	movwf	??_InitLCD+2
+   709  0685  3004               	movlw	4
+   710  0686  00F4               	movwf	??_InitLCD+1
+   711  0687  30BA               	movlw	186
+   712  0688  00F3               	movwf	??_InitLCD
+   713  0689                     u297:	
+   714  0689  0BF3               	decfsz	??_InitLCD,f
+   715  068A  2E89               	goto	u297
+   716  068B  0BF4               	decfsz	??_InitLCD+1,f
+   717  068C  2E89               	goto	u297
+   718  068D  0BF5               	decfsz	??_InitLCD+2,f
+   719  068E  2E89               	goto	u297
+   720  068F  0064               	clrwdt
+   721                           
+   722                           ;LCD.c: 60: PORTB &= 0x0F;
+   723                           
+   724                           ;LCD.c: 61: PORTB |= 0x30;
+   725  0690  2702  120A  118A   	fcall	PL2	;call to abstracted procedure
+   726                           
+   727                           ;LCD.c: 62: ToggleEpinOfLCD();
+   728  0693  26DA  120A  118A   	fcall	_ToggleEpinOfLCD
+   729                           
+   730                           ;LCD.c: 64: _delay((unsigned long)((6)*(20000000/4000.0)));
+   731  0696  3027               	movlw	39
+   732  0697  00F4               	movwf	??_InitLCD+1
+   733  0698  30F5               	movlw	245
+   734  0699  00F3               	movwf	??_InitLCD
+   735  069A                     u307:	
+   736  069A  0BF3               	decfsz	??_InitLCD,f
+   737  069B  2E9A               	goto	u307
+   738  069C  0BF4               	decfsz	??_InitLCD+1,f
+   739  069D  2E9A               	goto	u307
+   740                           
+   741                           ;LCD.c: 66: PORTB &= 0x0F;
+   742  069E  300F               	movlw	15
+   743  069F  2710               	call	PL4	;select bank 0
+   744  06A0  0586               	andwf	6,f	;volatile
+   745                           
+   746                           ;LCD.c: 67: PORTB |= 0x30;
+   747  06A1  3030               	movlw	48
+   748  06A2  0486               	iorwf	6,f	;volatile
+   749                           
+   750                           ;LCD.c: 68: ToggleEpinOfLCD();
+   751  06A3  26DA  120A  118A   	fcall	_ToggleEpinOfLCD
+   752                           
+   753                           ;LCD.c: 70: _delay((unsigned long)((300)*(20000000/4000000.0)));
+   754  06A6  30D6               	movlw	214
+   755  06A7  00F3               	movwf	??_InitLCD
+   756  06A8                     u317:	
+   757  06A8  2EA9               	nop2
+   758  06A9  2EAA               	nop2
+   759  06AA  0BF3               	decfsz	??_InitLCD,f
+   760  06AB  2EA8               	goto	u317
+   761  06AC  0064               	clrwdt
+   762                           
+   763                           ;LCD.c: 72: PORTB &= 0x0F;
+   764                           
+   765                           ;LCD.c: 73: PORTB |= 0x30;
+   766  06AD  2702  120A  118A   	fcall	PL2	;call to abstracted procedure
+   767                           
+   768                           ;LCD.c: 74: ToggleEpinOfLCD();
+   769  06B0  26DA  120A  118A   	fcall	_ToggleEpinOfLCD
+   770                           
+   771                           ;LCD.c: 76: _delay((unsigned long)((2)*(20000000/4000.0)));
+   772  06B3  300D               	movlw	13
+   773  06B4  00F4               	movwf	??_InitLCD+1
+   774  06B5  30FB               	movlw	251
+   775  06B6  00F3               	movwf	??_InitLCD
+   776  06B7                     u327:	
+   777  06B7  0BF3               	decfsz	??_InitLCD,f
+   778  06B8  2EB7               	goto	u327
+   779  06B9  0BF4               	decfsz	??_InitLCD+1,f
+   780  06BA  2EB7               	goto	u327
+   781  06BB  2EBC               	nop2
+   782                           
+   783                           ;LCD.c: 78: PORTB &= 0x0F;
+   784  06BC  300F               	movlw	15
+   785  06BD  2710               	call	PL4	;select bank 0
+   786  06BE  0586               	andwf	6,f	;volatile
+   787                           
+   788                           ;LCD.c: 79: PORTB |= 0x20;
+   789  06BF  1686               	bsf	6,5	;volatile
+   790                           
+   791                           ;LCD.c: 80: ToggleEpinOfLCD();
+   792  06C0  26DA  120A  118A   	fcall	_ToggleEpinOfLCD
+   793                           
+   794                           ;LCD.c: 82: _delay((unsigned long)((2)*(20000000/4000.0)));
+   795  06C3  300D               	movlw	13
+   796  06C4  00F4               	movwf	??_InitLCD+1
+   797  06C5  30FB               	movlw	251
+   798  06C6  00F3               	movwf	??_InitLCD
+   799  06C7                     u337:	
+   800  06C7  0BF3               	decfsz	??_InitLCD,f
+   801  06C8  2EC7               	goto	u337
+   802  06C9  0BF4               	decfsz	??_InitLCD+1,f
+   803  06CA  2EC7               	goto	u337
+   804  06CB  2ECC               	nop2
+   805                           
+   806                           ;LCD.c: 84: WriteCommandToLCD(0x28);
+   807  06CC  3028               	movlw	40
+   808  06CD  26F0  120A  118A   	fcall	_WriteCommandToLCD
+   809                           
+   810                           ;LCD.c: 85: WriteCommandToLCD(0x0c);
+   811  06D0  300C               	movlw	12
+   812  06D1  26F0  120A  118A   	fcall	_WriteCommandToLCD
+   813                           
+   814                           ;LCD.c: 86: WriteCommandToLCD(0x01);
+   815  06D4  3001               	movlw	1
+   816  06D5  26F0  120A  118A   	fcall	_WriteCommandToLCD
+   817                           
+   818                           ;LCD.c: 87: WriteCommandToLCD(0x06);
+   819  06D8  3006               	movlw	6
+   820  06D9  2EF0               	ljmp	_WriteCommandToLCD
+   821  06DA                     __end_of_InitLCD:	
+   822  06DA                     __ptext439:	
+   823 ;; =============== function _Write_Byte_To_24LC64_EEPROM ends ============
+   824                           
+   825                           
+   826 ;; *************** function _ToggleEpinOfLCD *****************
+   827 ;; Defined at:
+   828 ;;		line 5 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\LCD.c"
+   829 ;; Parameters:    Size  Location     Type
+   830 ;;		None
+   831 ;; Auto vars:     Size  Location     Type
+   832 ;;		None
+   833 ;; Return value:  Size  Location     Type
+   834 ;;		None               void
+   835 ;; Registers used:
+   836 ;;		wreg
+   837 ;; Tracked objects:
+   838 ;;		On entry : 60/0
+   839 ;;		On exit  : 0/0
+   840 ;;		Unchanged: 0/0
+   841 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   842 ;;      Params:         0       0       0       0       0
+   843 ;;      Locals:         0       0       0       0       0
+   844 ;;      Temps:          2       0       0       0       0
+   845 ;;      Totals:         2       0       0       0       0
+   846 ;;Total ram usage:        2 bytes
+   847 ;; Hardware stack levels used:    1
+   848 ;; This function calls:
+   849 ;;		Nothing
+   850 ;; This function is called by:
+   851 ;;		_WriteCommandToLCD
+   852 ;;		_WriteDataToLCD
+   853 ;;		_InitLCD
+   854 ;; This function uses a non-reentrant model
+   855 ;;
+   856  06DA                     _ToggleEpinOfLCD:	
+   857  06DA                     l3959:	
+   858                           ; Regs used in _ToggleEpinOfLCD: [wreg]
+   859                           
+   860  06DA  3004               	movlw	4
+   861                           
+   862                           ;LCD.c: 6: RB0 = 1;
+   863  06DB  1406               	bsf	6,0
+   864                           
+   865                           ;LCD.c: 7: _delay((unsigned long)((500)*(20000000/4000000.0)));
+   866  06DC  00F1               	movwf	??_ToggleEpinOfLCD+1
+   867  06DD  303D               	movlw	61
+   868  06DE  00F0               	movwf	??_ToggleEpinOfLCD
+   869  06DF                     u347:	
+   870  06DF  0BF0               	decfsz	??_ToggleEpinOfLCD,f
+   871  06E0  2EDF               	goto	u347
+   872  06E1  0BF1               	decfsz	??_ToggleEpinOfLCD+1,f
+   873  06E2  2EDF               	goto	u347
+   874  06E3  2EE4               	nop2
+   875  06E4  2710               	call	PL4	;select bank 0
+   876                           
+   877                           ;LCD.c: 8: RB0 = 0;
+   878  06E5  3004               	movlw	4
+   879  06E6  1006               	bcf	6,0
+   880                           
+   881                           ;LCD.c: 9: _delay((unsigned long)((500)*(20000000/4000000.0)));
+   882  06E7  00F1               	movwf	??_ToggleEpinOfLCD+1
+   883  06E8  303D               	movlw	61
+   884  06E9  00F0               	movwf	??_ToggleEpinOfLCD
+   885  06EA                     u357:	
+   886  06EA  0BF0               	decfsz	??_ToggleEpinOfLCD,f
+   887  06EB  2EEA               	goto	u357
+   888  06EC  0BF1               	decfsz	??_ToggleEpinOfLCD+1,f
+   889  06ED  2EEA               	goto	u357
+   890  06EE  2EEF               	nop2
+   891  06EF  0008               	return
+   892  06F0                     __end_of_ToggleEpinOfLCD:	
+   893  06F0                     __ptext434:	
+   894 ;; =============== function _WriteDataToLCD ends ============
+   895                           
+   896                           
+   897 ;; *************** function _WriteCommandToLCD *****************
+   898 ;; Defined at:
+   899 ;;		line 14 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\LCD.c"
+   900 ;; Parameters:    Size  Location     Type
+   901 ;;  Command         1    wreg     unsigned char 
+   902 ;; Auto vars:     Size  Location     Type
+   903 ;;  Command         1    2[COMMON] unsigned char 
+   904 ;; Return value:  Size  Location     Type
+   905 ;;		None               void
+   906 ;; Registers used:
+   907 ;;		wreg, status,2, status,0, pclath, cstack
+   908 ;; Tracked objects:
+   909 ;;		On entry : 0/0
+   910 ;;		On exit  : 0/0
+   911 ;;		Unchanged: 0/0
+   912 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   913 ;;      Params:         0       0       0       0       0
+   914 ;;      Locals:         1       0       0       0       0
+   915 ;;      Temps:          0       0       0       0       0
+   916 ;;      Totals:         1       0       0       0       0
+   917 ;;Total ram usage:        1 bytes
+   918 ;; Hardware stack levels used:    1
+   919 ;; Hardware stack levels required when called:    1
+   920 ;; This function calls:
+   921 ;;		_ToggleEpinOfLCD
+   922 ;; This function is called by:
+   923 ;;		_InitLCD
+   924 ;; This function uses a non-reentrant model
+   925 ;;
+   926  06F0                     _WriteCommandToLCD:	
+   927                           
+   928                           ; Regs used in _WriteCommandToLCD: [wreg+status,2+status,0+pclath+cstack]
+   929                           ;WriteCommandToLCD@Command stored from wreg
+   930  06F0  00F2               	movwf	WriteCommandToLCD@Command
+   931  06F1  2710               	call	PL4	;select bank 0
+   932                           
+   933                           ;LCD.c: 15: RB1 = 0;
+   934  06F2  300F               	movlw	15
+   935  06F3  1086               	bcf	6,1
+   936                           
+   937                           ;LCD.c: 17: PORTB &= 0x0F;
+   938  06F4  0586               	andwf	6,f	;volatile
+   939                           
+   940                           ;LCD.c: 18: PORTB |= (Command&0xF0);
+   941  06F5  0872               	movf	WriteCommandToLCD@Command,w
+   942  06F6  39F0               	andlw	240
+   943  06F7  0486               	iorwf	6,f	;volatile
+   944                           
+   945                           ;LCD.c: 19: ToggleEpinOfLCD();
+   946  06F8  26DA  120A  118A   	fcall	_ToggleEpinOfLCD
+   947                           
+   948                           ;LCD.c: 21: PORTB &= 0x0F;
+   949  06FB  300F               	movlw	15
+   950  06FC  2710               	call	PL4	;select bank 0
+   951  06FD  0586               	andwf	6,f	;volatile
+   952                           
+   953                           ;LCD.c: 22: PORTB |= ((Command<<4)&0xF0);
+   954  06FE  0E72               	swapf	WriteCommandToLCD@Command,w
+   955  06FF  39F0               	andlw	240
+   956  0700  0486               	iorwf	6,f	;volatile
+   957                           
+   958                           ;LCD.c: 23: ToggleEpinOfLCD();
+   959  0701  2EDA               	ljmp	l3959
+   960  0702                     __end_of_WriteCommandToLCD:	
+   961  0702                     PL2:	
+   962  0702  300F               	movlw	15
+   963  0703  1283               	bcf	3,5	;RP0=0, select bank0
+   964  0704  1303               	bcf	3,6	;RP1=0, select bank0
+   965  0705  0586               	andwf	6,f	;volatile
+   966  0706  3030               	movlw	48
+   967  0707  0486               	iorwf	6,f	;volatile
+   968  0708  0008               	return
+   969  0709                     PL3:	
+   970  0709  1006               	bcf	6,0
+   971  070A  1086               	bcf	6,1
+   972  070B  1206               	bcf	6,4
+   973  070C  1286               	bcf	6,5
+   974  070D  1306               	bcf	6,6
+   975  070E  1386               	bcf	6,7
+   976  070F  0008               	return
+   977  0710                     PL4:	
+   978  0710  1283               	bcf	3,5	;RP0=0, select bank0
+   979  0711  1303               	bcf	3,6	;RP1=0, select bank0
+   980  0712  0008               	return
+   981                           
+   982                           	psect	text438
+   983  0713                     __ptext438:	
+   984 ;; =============== function _Read_Byte_From_24LC64_EEPROM ends ============
+   985                           
+   986                           
+   987 ;; *************** function _Write_Byte_To_24LC64_EEPROM *****************
+   988 ;; Defined at:
+   989 ;;		line 9 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\24LC64.c"
+   990 ;; Parameters:    Size  Location     Type
+   991 ;;  Address         2    1[COMMON] unsigned int 
+   992 ;;  DataByte        1    3[COMMON] unsigned char 
+   993 ;; Auto vars:     Size  Location     Type
+   994 ;;		None
+   995 ;; Return value:  Size  Location     Type
+   996 ;;		None               void
+   997 ;; Registers used:
+   998 ;;		wreg, status,2, status,0, pclath, cstack
+   999 ;; Tracked objects:
+  1000 ;;		On entry : 60/0
+  1001 ;;		On exit  : 60/0
+  1002 ;;		Unchanged: FFF9F/0
+  1003 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1004 ;;      Params:         3       0       0       0       0
+  1005 ;;      Locals:         0       0       0       0       0
+  1006 ;;      Temps:          0       0       0       0       0
+  1007 ;;      Totals:         3       0       0       0       0
+  1008 ;;Total ram usage:        3 bytes
+  1009 ;; Hardware stack levels used:    1
+  1010 ;; Hardware stack levels required when called:    1
+  1011 ;; This function calls:
+  1012 ;;		_I2C_Start
+  1013 ;;		_I2C_ReStart
+  1014 ;;		_I2C_Write_Byte
+  1015 ;;		_I2C_Stop
+  1016 ;; This function is called by:
+  1017 ;;		_main
+  1018 ;; This function uses a non-reentrant model
+  1019 ;;
+  1020  0713                     _Write_Byte_To_24LC64_EEPROM:	
+  1021                           
+  1022                           ;24LC64.c: 10: I2C_Start();
+  1023                           
+  1024                           ; Regs used in _Write_Byte_To_24LC64_EEPROM: [wreg+status,2+status,0+pclath+cstack]
+  1025  0713  27DA  120A  118A   	fcall	_I2C_Start
+  1026  0716                     l3969:	
+  1027                           ;24LC64.c: 13: while(I2C_Write_Byte(0xA0 + 0) == 1)
+  1028                           
+  1029  0716  30A0               	movlw	160
+  1030  0717  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1031  071A  1C03               	btfss	3,0
+  1032  071B  2F20               	goto	l3971
+  1033                           
+  1034                           ;24LC64.c: 14: { I2C_ReStart(); }
+  1035  071C  27D3  120A  118A   	fcall	_I2C_ReStart
+  1036  071F  2F16               	goto	l3969
+  1037  0720                     l3971:	
+  1038                           
+  1039                           ;24LC64.c: 16: I2C_Write_Byte(Address>>8);
+  1040  0720  0872               	movf	Write_Byte_To_24LC64_EEPROM@Address+1,w
+  1041  0721  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1042                           
+  1043                           ;24LC64.c: 17: I2C_Write_Byte((unsigned char)Address);
+  1044  0724  0871               	movf	Write_Byte_To_24LC64_EEPROM@Address,w
+  1045  0725  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1046                           
+  1047                           ;24LC64.c: 18: I2C_Write_Byte(DataByte);
+  1048  0728  0873               	movf	Write_Byte_To_24LC64_EEPROM@DataByte,w
+  1049  0729  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1050                           
+  1051                           ;24LC64.c: 19: I2C_Stop();
+  1052  072C  2FE9               	ljmp	l3939
+  1053  072D                     __end_of_Write_Byte_To_24LC64_EEPROM:	
+  1054  072D                     __ptext437:	
+  1055 ;; =============== function _Write_Page_To_24LC64_EEPROM ends ============
+  1056                           
+  1057                           
+  1058 ;; *************** function _Read_Byte_From_24LC64_EEPROM *****************
+  1059 ;; Defined at:
+  1060 ;;		line 27 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\24LC64.c"
+  1061 ;; Parameters:    Size  Location     Type
+  1062 ;;  Address         2    1[COMMON] unsigned int 
+  1063 ;; Auto vars:     Size  Location     Type
+  1064 ;;  Byte            1    3[COMMON] unsigned char 
+  1065 ;; Return value:  Size  Location     Type
+  1066 ;;                  1    wreg      unsigned char 
+  1067 ;; Registers used:
+  1068 ;;		wreg, status,2, status,0, pclath, cstack
+  1069 ;; Tracked objects:
+  1070 ;;		On entry : 60/0
+  1071 ;;		On exit  : 60/0
+  1072 ;;		Unchanged: FFF9F/0
+  1073 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1074 ;;      Params:         2       0       0       0       0
+  1075 ;;      Locals:         1       0       0       0       0
+  1076 ;;      Temps:          0       0       0       0       0
+  1077 ;;      Totals:         3       0       0       0       0
+  1078 ;;Total ram usage:        3 bytes
+  1079 ;; Hardware stack levels used:    1
+  1080 ;; Hardware stack levels required when called:    1
+  1081 ;; This function calls:
+  1082 ;;		_I2C_Start
+  1083 ;;		_I2C_ReStart
+  1084 ;;		_I2C_Write_Byte
+  1085 ;;		_I2C_Read_Byte
+  1086 ;;		_I2C_Send_NACK
+  1087 ;;		_I2C_Stop
+  1088 ;; This function is called by:
+  1089 ;;		_main
+  1090 ;; This function uses a non-reentrant model
+  1091 ;;
+  1092  072D                     _Read_Byte_From_24LC64_EEPROM:	
+  1093                           
+  1094                           ;24LC64.c: 30: I2C_Start();
+  1095                           
+  1096                           ; Regs used in _Read_Byte_From_24LC64_EEPROM: [wreg+status,2+status,0+pclath+cstack]
+  1097  072D  27DA  120A  118A   	fcall	_I2C_Start
+  1098  0730                     l3981:	
+  1099                           ;24LC64.c: 33: while(I2C_Write_Byte(0xA0 + 0) == 1)
+  1100                           
+  1101  0730  30A0               	movlw	160
+  1102  0731  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1103  0734  1C03               	btfss	3,0
+  1104  0735  2F3A               	goto	l3983
+  1105                           
+  1106                           ;24LC64.c: 34: { I2C_ReStart(); }
+  1107  0736  27D3  120A  118A   	fcall	_I2C_ReStart
+  1108  0739  2F30               	goto	l3981
+  1109  073A                     l3983:	
+  1110                           
+  1111                           ;24LC64.c: 36: I2C_Write_Byte(Address>>8);
+  1112  073A  0872               	movf	Read_Byte_From_24LC64_EEPROM@Address+1,w
+  1113  073B  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1114                           
+  1115                           ;24LC64.c: 37: I2C_Write_Byte((unsigned char)Address);
+  1116  073E  0871               	movf	Read_Byte_From_24LC64_EEPROM@Address,w
+  1117  073F  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1118                           
+  1119                           ;24LC64.c: 38: I2C_ReStart();
+  1120  0742  27D3  120A  118A   	fcall	_I2C_ReStart
+  1121                           
+  1122                           ;24LC64.c: 41: I2C_Write_Byte(0xA0 + 1);
+  1123  0745  30A1               	movlw	161
+  1124  0746  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1125                           
+  1126                           ;24LC64.c: 43: Byte = I2C_Read_Byte();
+  1127  0749  27E1  120A  118A   	fcall	_I2C_Read_Byte
+  1128  074C  00F3               	movwf	Read_Byte_From_24LC64_EEPROM@Byte
+  1129                           
+  1130                           ;24LC64.c: 45: I2C_Send_NACK();
+  1131  074D  27F0  120A  118A   	fcall	_I2C_Send_NACK
+  1132                           
+  1133                           ;24LC64.c: 46: I2C_Stop();
+  1134  0750  27E9               	fcall	_I2C_Stop
+  1135                           
+  1136                           ;24LC64.c: 48: return Byte;
+  1137  0751  0873               	movf	Read_Byte_From_24LC64_EEPROM@Byte,w
+  1138  0752  0008               	return
+  1139  0753                     __end_of_Read_Byte_From_24LC64_EEPROM:	
+  1140  0753                     __ptext436:	
+  1141 ;; =============== function _Read_Bytes_From_24LC64_EEPROM ends ============
+  1142                           
+  1143                           
+  1144 ;; *************** function _Write_Page_To_24LC64_EEPROM *****************
+  1145 ;; Defined at:
+  1146 ;;		line 57 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\24LC64.c"
+  1147 ;; Parameters:    Size  Location     Type
+  1148 ;;  Address         2    1[COMMON] unsigned int 
+  1149 ;;  pData           1    3[COMMON] PTR unsigned char 
+  1150 ;;		 -> main@TxArray(4), 
+  1151 ;;  NoOfBytes       1    4[COMMON] unsigned char 
+  1152 ;; Auto vars:     Size  Location     Type
+  1153 ;;  i               2    7[COMMON] unsigned int 
+  1154 ;; Return value:  Size  Location     Type
+  1155 ;;		None               void
+  1156 ;; Registers used:
+  1157 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1158 ;; Tracked objects:
+  1159 ;;		On entry : 60/0
+  1160 ;;		On exit  : 60/0
+  1161 ;;		Unchanged: FFE9F/0
+  1162 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1163 ;;      Params:         4       0       0       0       0
+  1164 ;;      Locals:         2       0       0       0       0
+  1165 ;;      Temps:          2       0       0       0       0
+  1166 ;;      Totals:         8       0       0       0       0
+  1167 ;;Total ram usage:        8 bytes
+  1168 ;; Hardware stack levels used:    1
+  1169 ;; Hardware stack levels required when called:    1
+  1170 ;; This function calls:
+  1171 ;;		_I2C_Start
+  1172 ;;		_I2C_ReStart
+  1173 ;;		_I2C_Write_Byte
+  1174 ;;		_I2C_Stop
+  1175 ;; This function is called by:
+  1176 ;;		_main
+  1177 ;; This function uses a non-reentrant model
+  1178 ;;
+  1179  0753                     _Write_Page_To_24LC64_EEPROM:	
+  1180                           
+  1181                           ;24LC64.c: 58: unsigned int i;
+  1182                           ;24LC64.c: 60: I2C_Start();
+  1183                           
+  1184                           ; Regs used in _Write_Page_To_24LC64_EEPROM: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1185  0753  27DA  120A  118A   	fcall	_I2C_Start
+  1186  0756                     l4003:	
+  1187                           ;24LC64.c: 63: while(I2C_Write_Byte(0xA0 + 0) == 1)
+  1188                           
+  1189  0756  30A0               	movlw	160
+  1190  0757  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1191  075A  1C03               	btfss	3,0
+  1192  075B  2F60               	goto	l4005
+  1193                           
+  1194                           ;24LC64.c: 64: { I2C_ReStart(); }
+  1195  075C  27D3  120A  118A   	fcall	_I2C_ReStart
+  1196  075F  2F56               	goto	l4003
+  1197  0760                     l4005:	
+  1198                           
+  1199                           ;24LC64.c: 66: I2C_Write_Byte(Address>>8);
+  1200  0760  0872               	movf	Write_Page_To_24LC64_EEPROM@Address+1,w
+  1201  0761  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1202                           
+  1203                           ;24LC64.c: 67: I2C_Write_Byte((unsigned char)Address);
+  1204  0764  0871               	movf	Write_Page_To_24LC64_EEPROM@Address,w
+  1205  0765  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1206                           
+  1207                           ;24LC64.c: 69: for(i=0;i<NoOfBytes;i++)
+  1208  0768  01F7               	clrf	Write_Page_To_24LC64_EEPROM@i
+  1209  0769  01F8               	clrf	Write_Page_To_24LC64_EEPROM@i+1
+  1210  076A                     l4013:	
+  1211  076A  0874               	movf	Write_Page_To_24LC64_EEPROM@NoOfBytes,w
+  1212  076B  00F5               	movwf	??_Write_Page_To_24LC64_EEPROM
+  1213  076C  01F6               	clrf	??_Write_Page_To_24LC64_EEPROM+1
+  1214  076D  0876               	movf	??_Write_Page_To_24LC64_EEPROM+1,w
+  1215  076E  0278               	subwf	Write_Page_To_24LC64_EEPROM@i+1,w
+  1216  076F  1D03               	skipz
+  1217  0770  2F73               	goto	u265
+  1218  0771  0875               	movf	??_Write_Page_To_24LC64_EEPROM,w
+  1219  0772  0277               	subwf	Write_Page_To_24LC64_EEPROM@i,w
+  1220  0773                     u265:	
+  1221  0773  1803               	btfsc	3,0
+  1222  0774  2F82               	goto	l4015
+  1223                           
+  1224                           ;24LC64.c: 70: I2C_Write_Byte(pData[i]);
+  1225  0775  0877               	movf	Write_Page_To_24LC64_EEPROM@i,w
+  1226  0776  0773               	addwf	Write_Page_To_24LC64_EEPROM@pData,w
+  1227  0777  00F5               	movwf	??_Write_Page_To_24LC64_EEPROM
+  1228  0778  0084               	movwf	4
+  1229  0779  1383               	bcf	3,7	;select IRP bank0
+  1230  077A  0800               	movf	0,w
+  1231  077B  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1232  077E  0AF7               	incf	Write_Page_To_24LC64_EEPROM@i,f
+  1233  077F  1903               	skipnz
+  1234  0780  0AF8               	incf	Write_Page_To_24LC64_EEPROM@i+1,f
+  1235  0781  2F6A               	goto	l4013
+  1236  0782                     l4015:	
+  1237                           
+  1238                           ;24LC64.c: 72: I2C_Stop();
+  1239  0782  2FE9               	ljmp	l3939
+  1240  0783                     __end_of_Write_Page_To_24LC64_EEPROM:	
+  1241  0783                     __ptext435:	
+  1242 ;; =============== function _WriteCommandToLCD ends ============
+  1243                           
+  1244                           
+  1245 ;; *************** function _Read_Bytes_From_24LC64_EEPROM *****************
+  1246 ;; Defined at:
+  1247 ;;		line 82 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\24LC64.c"
+  1248 ;; Parameters:    Size  Location     Type
+  1249 ;;  Address         2    1[COMMON] unsigned int 
+  1250 ;;  pData           1    3[COMMON] PTR unsigned char 
+  1251 ;;		 -> main@RxArray(4), 
+  1252 ;;  NoOfBytes       2    4[COMMON] unsigned int 
+  1253 ;; Auto vars:     Size  Location     Type
+  1254 ;;  i               2    7[COMMON] unsigned int 
+  1255 ;; Return value:  Size  Location     Type
+  1256 ;;		None               void
+  1257 ;; Registers used:
+  1258 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1259 ;; Tracked objects:
+  1260 ;;		On entry : 60/0
+  1261 ;;		On exit  : 160/0
+  1262 ;;		Unchanged: FFE9F/0
+  1263 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1264 ;;      Params:         5       0       0       0       0
+  1265 ;;      Locals:         2       0       0       0       0
+  1266 ;;      Temps:          1       0       0       0       0
+  1267 ;;      Totals:         8       0       0       0       0
+  1268 ;;Total ram usage:        8 bytes
+  1269 ;; Hardware stack levels used:    1
+  1270 ;; Hardware stack levels required when called:    1
+  1271 ;; This function calls:
+  1272 ;;		_I2C_Start
+  1273 ;;		_I2C_ReStart
+  1274 ;;		_I2C_Write_Byte
+  1275 ;;		_I2C_Read_Byte
+  1276 ;;		_I2C_Send_ACK
+  1277 ;;		_I2C_Send_NACK
+  1278 ;;		_I2C_Stop
+  1279 ;; This function is called by:
+  1280 ;;		_main
+  1281 ;; This function uses a non-reentrant model
+  1282 ;;
+  1283  0783                     _Read_Bytes_From_24LC64_EEPROM:	
+  1284                           
+  1285                           ;24LC64.c: 83: unsigned int i;
+  1286                           ;24LC64.c: 85: I2C_Start();
+  1287                           
+  1288                           ; Regs used in _Read_Bytes_From_24LC64_EEPROM: [wreg-fsr0h+status,2+status,0+pclath+csta
+      +                          ck]
+  1289  0783  27DA  120A  118A   	fcall	_I2C_Start
+  1290  0786                     l4021:	
+  1291                           ;24LC64.c: 88: while(I2C_Write_Byte(0xA0 + 0) == 1)
+  1292                           
+  1293  0786  30A0               	movlw	160
+  1294  0787  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1295  078A  1C03               	btfss	3,0
+  1296  078B  2F90               	goto	l4023
+  1297                           
+  1298                           ;24LC64.c: 89: { I2C_ReStart(); }
+  1299  078C  27D3  120A  118A   	fcall	_I2C_ReStart
+  1300  078F  2F86               	goto	l4021
+  1301  0790                     l4023:	
+  1302                           
+  1303                           ;24LC64.c: 91: I2C_Write_Byte(Address>>8);
+  1304  0790  0872               	movf	Read_Bytes_From_24LC64_EEPROM@Address+1,w
+  1305  0791  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1306                           
+  1307                           ;24LC64.c: 92: I2C_Write_Byte((unsigned char)Address);
+  1308  0794  0871               	movf	Read_Bytes_From_24LC64_EEPROM@Address,w
+  1309  0795  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1310                           
+  1311                           ;24LC64.c: 93: I2C_ReStart();
+  1312  0798  27D3  120A  118A   	fcall	_I2C_ReStart
+  1313                           
+  1314                           ;24LC64.c: 96: I2C_Write_Byte(0xA0 + 1);
+  1315  079B  30A1               	movlw	161
+  1316  079C  27C5  120A  118A   	fcall	_I2C_Write_Byte
+  1317                           
+  1318                           ;24LC64.c: 98: pData[0] = I2C_Read_Byte();
+  1319  079F  0873               	movf	Read_Bytes_From_24LC64_EEPROM@pData,w
+  1320  07A0  0084               	movwf	4
+  1321  07A1  27E1  120A  118A   	fcall	_I2C_Read_Byte
+  1322  07A4  1383               	bcf	3,7	;select IRP bank0
+  1323  07A5  0080               	movwf	0
+  1324                           
+  1325                           ;24LC64.c: 100: for(i=1;i<NoOfBytes;i++)
+  1326  07A6  01F7               	clrf	Read_Bytes_From_24LC64_EEPROM@i
+  1327  07A7  0AF7               	incf	Read_Bytes_From_24LC64_EEPROM@i,f
+  1328  07A8  01F8               	clrf	Read_Bytes_From_24LC64_EEPROM@i+1
+  1329  07A9                     l4039:	
+  1330  07A9  0875               	movf	Read_Bytes_From_24LC64_EEPROM@NoOfBytes+1,w
+  1331  07AA  0278               	subwf	Read_Bytes_From_24LC64_EEPROM@i+1,w
+  1332  07AB  1D03               	skipz
+  1333  07AC  2FAF               	goto	u285
+  1334  07AD  0874               	movf	Read_Bytes_From_24LC64_EEPROM@NoOfBytes,w
+  1335  07AE  0277               	subwf	Read_Bytes_From_24LC64_EEPROM@i,w
+  1336  07AF                     u285:	
+  1337  07AF  1803               	btfsc	3,0
+  1338  07B0  2FC1               	goto	l4041
+  1339                           
+  1340                           ;24LC64.c: 101: {
+  1341                           ;24LC64.c: 102: I2C_Send_ACK();
+  1342  07B1  27F8  120A  118A   	fcall	_I2C_Send_ACK
+  1343                           
+  1344                           ;24LC64.c: 103: pData[i] = I2C_Read_Byte();
+  1345  07B4  0877               	movf	Read_Bytes_From_24LC64_EEPROM@i,w
+  1346  07B5  0773               	addwf	Read_Bytes_From_24LC64_EEPROM@pData,w
+  1347  07B6  00F6               	movwf	??_Read_Bytes_From_24LC64_EEPROM
+  1348  07B7  0876               	movf	??_Read_Bytes_From_24LC64_EEPROM,w
+  1349  07B8  0084               	movwf	4
+  1350  07B9  27E1  120A  118A   	fcall	_I2C_Read_Byte
+  1351  07BC  0080               	movwf	0
+  1352  07BD  0AF7               	incf	Read_Bytes_From_24LC64_EEPROM@i,f
+  1353  07BE  1903               	skipnz
+  1354  07BF  0AF8               	incf	Read_Bytes_From_24LC64_EEPROM@i+1,f
+  1355  07C0  2FA9               	goto	l4039
+  1356  07C1                     l4041:	
+  1357                           
+  1358                           ;24LC64.c: 104: }
+  1359                           ;24LC64.c: 106: I2C_Send_NACK();
+  1360  07C1  27F0  120A  118A   	fcall	_I2C_Send_NACK
+  1361                           
+  1362                           ;24LC64.c: 107: I2C_Stop();
+  1363  07C4  2FE9               	ljmp	l3939
+  1364  07C5                     __end_of_Read_Bytes_From_24LC64_EEPROM:	
+  1365  07C5                     __ptext441:	
+  1366 ;; =============== function _I2C_Read_Byte ends ============
+  1367                           
+  1368                           
+  1369 ;; *************** function _I2C_Write_Byte *****************
+  1370 ;; Defined at:
+  1371 ;;		line 67 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1372 ;; Parameters:    Size  Location     Type
+  1373 ;;  Byte            1    wreg     unsigned char 
+  1374 ;; Auto vars:     Size  Location     Type
+  1375 ;;  Byte            1    0[COMMON] unsigned char 
+  1376 ;; Return value:  Size  Location     Type
+  1377 ;;		None               void
+  1378 ;; Registers used:
+  1379 ;;		wreg, status,2, status,0
+  1380 ;; Tracked objects:
+  1381 ;;		On entry : 40/0
+  1382 ;;		On exit  : 60/20
+  1383 ;;		Unchanged: FFF9F/0
+  1384 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1385 ;;      Params:         0       0       0       0       0
+  1386 ;;      Locals:         1       0       0       0       0
+  1387 ;;      Temps:          0       0       0       0       0
+  1388 ;;      Totals:         1       0       0       0       0
+  1389 ;;Total ram usage:        1 bytes
+  1390 ;; Hardware stack levels used:    1
+  1391 ;; This function calls:
+  1392 ;;		Nothing
+  1393 ;; This function is called by:
+  1394 ;;		_Write_Byte_To_24LC64_EEPROM
+  1395 ;;		_Read_Byte_From_24LC64_EEPROM
+  1396 ;;		_Write_Page_To_24LC64_EEPROM
+  1397 ;;		_Read_Bytes_From_24LC64_EEPROM
+  1398 ;; This function uses a non-reentrant model
+  1399 ;;
+  1400  07C5                     _I2C_Write_Byte:	
+  1401                           
+  1402                           ; Regs used in _I2C_Write_Byte: [wreg+status,2+status,0]
+  1403                           ;I2C_Write_Byte@Byte stored from wreg
+  1404  07C5  00F0               	movwf	I2C_Write_Byte@Byte
+  1405                           
+  1406                           ;I2C.c: 68: SSPBUF = Byte;
+  1407  07C6  0870               	movf	I2C_Write_Byte@Byte,w
+  1408  07C7  1283               	bcf	3,5	;RP0=0, select bank0
+  1409  07C8  0093               	movwf	19	;volatile
+  1410  07C9                     l674:	
+  1411                           ;I2C.c: 69: while(!SSPIF);
+  1412                           
+  1413  07C9  1D8C               	btfss	12,3
+  1414  07CA  2FC9               	goto	l674
+  1415                           
+  1416                           ;I2C.c: 70: SSPIF = 0;
+  1417  07CB  118C               	bcf	12,3
+  1418                           
+  1419                           ;I2C.c: 72: return ACKSTAT;
+  1420  07CC  1683               	bsf	3,5	;RP0=1, select bank1
+  1421  07CD  1B11               	btfsc	17,6
+  1422  07CE  2FD1               	goto	l3949
+  1423  07CF  1003               	clrc
+  1424  07D0  0008               	return
+  1425  07D1                     l3949:	
+  1426  07D1  1403               	setc
+  1427  07D2  0008               	return
+  1428  07D3                     __end_of_I2C_Write_Byte:	
+  1429  07D3                     __ptext445:	
+  1430 ;; =============== function _I2C_Stop ends ============
+  1431                           
+  1432                           
+  1433 ;; *************** function _I2C_ReStart *****************
+  1434 ;; Defined at:
+  1435 ;;		line 28 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1436 ;; Parameters:    Size  Location     Type
+  1437 ;;		None
+  1438 ;; Auto vars:     Size  Location     Type
+  1439 ;;		None
+  1440 ;; Return value:  Size  Location     Type
+  1441 ;;		None               void
+  1442 ;; Registers used:
+  1443 ;;		None
+  1444 ;; Tracked objects:
+  1445 ;;		On entry : 40/20
+  1446 ;;		On exit  : 60/0
+  1447 ;;		Unchanged: FFF9F/0
+  1448 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1449 ;;      Params:         0       0       0       0       0
+  1450 ;;      Locals:         0       0       0       0       0
+  1451 ;;      Temps:          0       0       0       0       0
+  1452 ;;      Totals:         0       0       0       0       0
+  1453 ;;Total ram usage:        0 bytes
+  1454 ;; Hardware stack levels used:    1
+  1455 ;; This function calls:
+  1456 ;;		Nothing
+  1457 ;; This function is called by:
+  1458 ;;		_Write_Byte_To_24LC64_EEPROM
+  1459 ;;		_Read_Byte_From_24LC64_EEPROM
+  1460 ;;		_Write_Page_To_24LC64_EEPROM
+  1461 ;;		_Read_Bytes_From_24LC64_EEPROM
+  1462 ;; This function uses a non-reentrant model
+  1463 ;;
+  1464  07D3                     _I2C_ReStart:	
+  1465                           
+  1466                           ;I2C.c: 29: RSEN = 1;
+  1467                           
+  1468                           ; Regs used in _I2C_ReStart: []
+  1469  07D3  1683               	bsf	3,5	;RP0=1, select bank1
+  1470  07D4  1491               	bsf	17,1
+  1471  07D5                     l650:	
+  1472                           ;I2C.c: 30: while(!SSPIF);
+  1473                           
+  1474  07D5  1283               	bcf	3,5	;RP0=0, select bank0
+  1475  07D6  1D8C               	btfss	12,3
+  1476  07D7  2FD5               	goto	l650
+  1477                           
+  1478                           ;I2C.c: 31: SSPIF = 0;
+  1479  07D8  118C               	bcf	12,3
+  1480  07D9  0008               	return
+  1481  07DA                     __end_of_I2C_ReStart:	
+  1482  07DA                     __ptext446:	
+  1483 ;; =============== function _I2C_ReStart ends ============
+  1484                           
+  1485                           
+  1486 ;; *************** function _I2C_Start *****************
+  1487 ;; Defined at:
+  1488 ;;		line 19 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1489 ;; Parameters:    Size  Location     Type
+  1490 ;;		None
+  1491 ;; Auto vars:     Size  Location     Type
+  1492 ;;		None
+  1493 ;; Return value:  Size  Location     Type
+  1494 ;;		None               void
+  1495 ;; Registers used:
+  1496 ;;		None
+  1497 ;; Tracked objects:
+  1498 ;;		On entry : 60/0
+  1499 ;;		On exit  : 60/0
+  1500 ;;		Unchanged: FFF9F/0
+  1501 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1502 ;;      Params:         0       0       0       0       0
+  1503 ;;      Locals:         0       0       0       0       0
+  1504 ;;      Temps:          0       0       0       0       0
+  1505 ;;      Totals:         0       0       0       0       0
+  1506 ;;Total ram usage:        0 bytes
+  1507 ;; Hardware stack levels used:    1
+  1508 ;; This function calls:
+  1509 ;;		Nothing
+  1510 ;; This function is called by:
+  1511 ;;		_Write_Byte_To_24LC64_EEPROM
+  1512 ;;		_Read_Byte_From_24LC64_EEPROM
+  1513 ;;		_Write_Page_To_24LC64_EEPROM
+  1514 ;;		_Read_Bytes_From_24LC64_EEPROM
+  1515 ;; This function uses a non-reentrant model
+  1516 ;;
+  1517  07DA                     _I2C_Start:	
+  1518                           
+  1519                           ;I2C.c: 20: SEN = 1;
+  1520                           
+  1521                           ; Regs used in _I2C_Start: []
+  1522  07DA  1683               	bsf	3,5	;RP0=1, select bank1
+  1523  07DB  1411               	bsf	17,0
+  1524  07DC                     l644:	
+  1525                           ;I2C.c: 21: while(!SSPIF);
+  1526                           
+  1527  07DC  1283               	bcf	3,5	;RP0=0, select bank0
+  1528  07DD  1D8C               	btfss	12,3
+  1529  07DE  2FDC               	goto	l644
+  1530                           
+  1531                           ;I2C.c: 22: SSPIF = 0;
+  1532  07DF  118C               	bcf	12,3
+  1533  07E0  0008               	return
+  1534  07E1                     __end_of_I2C_Start:	
+  1535  07E1                     __ptext440:	
+  1536 ;; =============== function _ToggleEpinOfLCD ends ============
+  1537                           
+  1538                           
+  1539 ;; *************** function _I2C_Read_Byte *****************
+  1540 ;; Defined at:
+  1541 ;;		line 78 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1542 ;; Parameters:    Size  Location     Type
+  1543 ;;		None
+  1544 ;; Auto vars:     Size  Location     Type
+  1545 ;;		None
+  1546 ;; Return value:  Size  Location     Type
+  1547 ;;                  1    wreg      unsigned char 
+  1548 ;; Registers used:
+  1549 ;;		wreg
+  1550 ;; Tracked objects:
+  1551 ;;		On entry : 40/20
+  1552 ;;		On exit  : 60/0
+  1553 ;;		Unchanged: FFF9F/0
+  1554 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1555 ;;      Params:         0       0       0       0       0
+  1556 ;;      Locals:         0       0       0       0       0
+  1557 ;;      Temps:          0       0       0       0       0
+  1558 ;;      Totals:         0       0       0       0       0
+  1559 ;;Total ram usage:        0 bytes
+  1560 ;; Hardware stack levels used:    1
+  1561 ;; This function calls:
+  1562 ;;		Nothing
+  1563 ;; This function is called by:
+  1564 ;;		_Read_Byte_From_24LC64_EEPROM
+  1565 ;;		_Read_Bytes_From_24LC64_EEPROM
+  1566 ;; This function uses a non-reentrant model
+  1567 ;;
+  1568  07E1                     _I2C_Read_Byte:	
+  1569                           
+  1570                           ;I2C.c: 79: RCEN = 1;
+  1571                           
+  1572                           ; Regs used in _I2C_Read_Byte: [wreg]
+  1573  07E1  1683               	bsf	3,5	;RP0=1, select bank1
+  1574  07E2  1591               	bsf	17,3
+  1575  07E3                     l680:	
+  1576                           ;I2C.c: 80: while(!SSPIF);
+  1577                           
+  1578  07E3  1283               	bcf	3,5	;RP0=0, select bank0
+  1579  07E4  1D8C               	btfss	12,3
+  1580  07E5  2FE3               	goto	l680
+  1581                           
+  1582                           ;I2C.c: 81: SSPIF = 0;
+  1583  07E6  118C               	bcf	12,3
+  1584                           
+  1585                           ;I2C.c: 83: return SSPBUF;
+  1586  07E7  0813               	movf	19,w	;volatile
+  1587  07E8  0008               	return
+  1588  07E9                     __end_of_I2C_Read_Byte:	
+  1589  07E9                     __ptext444:	
+  1590 ;; =============== function _I2C_Send_ACK ends ============
+  1591                           
+  1592                           
+  1593 ;; *************** function _I2C_Stop *****************
+  1594 ;; Defined at:
+  1595 ;;		line 37 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1596 ;; Parameters:    Size  Location     Type
+  1597 ;;		None
+  1598 ;; Auto vars:     Size  Location     Type
+  1599 ;;		None
+  1600 ;; Return value:  Size  Location     Type
+  1601 ;;		None               void
+  1602 ;; Registers used:
+  1603 ;;		None
+  1604 ;; Tracked objects:
+  1605 ;;		On entry : 40/0
+  1606 ;;		On exit  : 60/0
+  1607 ;;		Unchanged: FFF9F/0
+  1608 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1609 ;;      Params:         0       0       0       0       0
+  1610 ;;      Locals:         0       0       0       0       0
+  1611 ;;      Temps:          0       0       0       0       0
+  1612 ;;      Totals:         0       0       0       0       0
+  1613 ;;Total ram usage:        0 bytes
+  1614 ;; Hardware stack levels used:    1
+  1615 ;; This function calls:
+  1616 ;;		Nothing
+  1617 ;; This function is called by:
+  1618 ;;		_Write_Byte_To_24LC64_EEPROM
+  1619 ;;		_Read_Byte_From_24LC64_EEPROM
+  1620 ;;		_Write_Page_To_24LC64_EEPROM
+  1621 ;;		_Read_Bytes_From_24LC64_EEPROM
+  1622 ;; This function uses a non-reentrant model
+  1623 ;;
+  1624  07E9                     _I2C_Stop:	
+  1625  07E9                     l3939:	
+  1626                           ; Regs used in _I2C_Stop: []
+  1627                           
+  1628                           
+  1629                           ;I2C.c: 38: PEN = 1;
+  1630  07E9  1683               	bsf	3,5	;RP0=1, select bank1
+  1631  07EA  1511               	bsf	17,2
+  1632  07EB                     l656:	
+  1633                           ;I2C.c: 39: while(!SSPIF);
+  1634                           
+  1635  07EB  1283               	bcf	3,5	;RP0=0, select bank0
+  1636  07EC  1D8C               	btfss	12,3
+  1637  07ED  2FEB               	goto	l656
+  1638                           
+  1639                           ;I2C.c: 40: SSPIF = 0;
+  1640  07EE  118C               	bcf	12,3
+  1641  07EF  0008               	return
+  1642  07F0                     __end_of_I2C_Stop:	
+  1643  07F0                     __ptext442:	
+  1644 ;; =============== function _I2C_Write_Byte ends ============
+  1645                           
+  1646                           
+  1647 ;; *************** function _I2C_Send_NACK *****************
+  1648 ;; Defined at:
+  1649 ;;		line 57 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1650 ;; Parameters:    Size  Location     Type
+  1651 ;;		None
+  1652 ;; Auto vars:     Size  Location     Type
+  1653 ;;		None
+  1654 ;; Return value:  Size  Location     Type
+  1655 ;;		None               void
+  1656 ;; Registers used:
+  1657 ;;		None
+  1658 ;; Tracked objects:
+  1659 ;;		On entry : 60/0
+  1660 ;;		On exit  : 60/0
+  1661 ;;		Unchanged: FFF9F/0
+  1662 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1663 ;;      Params:         0       0       0       0       0
+  1664 ;;      Locals:         0       0       0       0       0
+  1665 ;;      Temps:          0       0       0       0       0
+  1666 ;;      Totals:         0       0       0       0       0
+  1667 ;;Total ram usage:        0 bytes
+  1668 ;; Hardware stack levels used:    1
+  1669 ;; This function calls:
+  1670 ;;		Nothing
+  1671 ;; This function is called by:
+  1672 ;;		_Read_Byte_From_24LC64_EEPROM
+  1673 ;;		_Read_Bytes_From_24LC64_EEPROM
+  1674 ;; This function uses a non-reentrant model
+  1675 ;;
+  1676  07F0                     _I2C_Send_NACK:	
+  1677                           
+  1678                           ;I2C.c: 58: ACKDT = 1;
+  1679                           
+  1680                           ; Regs used in _I2C_Send_NACK: []
+  1681  07F0  1683               	bsf	3,5	;RP0=1, select bank1
+  1682  07F1  1691               	bsf	17,5
+  1683                           
+  1684                           ;I2C.c: 59: ACKEN = 1;
+  1685  07F2  1611               	bsf	17,4
+  1686  07F3                     l668:	
+  1687                           ;I2C.c: 60: while(!SSPIF);
+  1688                           
+  1689  07F3  1283               	bcf	3,5	;RP0=0, select bank0
+  1690  07F4  1D8C               	btfss	12,3
+  1691  07F5  2FF3               	goto	l668
+  1692                           
+  1693                           ;I2C.c: 61: SSPIF = 0;
+  1694  07F6  118C               	bcf	12,3
+  1695  07F7  0008               	return
+  1696  07F8                     __end_of_I2C_Send_NACK:	
+  1697  07F8                     __ptext443:	
+  1698 ;; =============== function _I2C_Send_NACK ends ============
+  1699                           
+  1700                           
+  1701 ;; *************** function _I2C_Send_ACK *****************
+  1702 ;; Defined at:
+  1703 ;;		line 47 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1704 ;; Parameters:    Size  Location     Type
+  1705 ;;		None
+  1706 ;; Auto vars:     Size  Location     Type
+  1707 ;;		None
+  1708 ;; Return value:  Size  Location     Type
+  1709 ;;		None               void
+  1710 ;; Registers used:
+  1711 ;;		None
+  1712 ;; Tracked objects:
+  1713 ;;		On entry : 60/0
+  1714 ;;		On exit  : 60/0
+  1715 ;;		Unchanged: FFF9F/0
+  1716 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1717 ;;      Params:         0       0       0       0       0
+  1718 ;;      Locals:         0       0       0       0       0
+  1719 ;;      Temps:          0       0       0       0       0
+  1720 ;;      Totals:         0       0       0       0       0
+  1721 ;;Total ram usage:        0 bytes
+  1722 ;; Hardware stack levels used:    1
+  1723 ;; This function calls:
+  1724 ;;		Nothing
+  1725 ;; This function is called by:
+  1726 ;;		_Read_Bytes_From_24LC64_EEPROM
+  1727 ;; This function uses a non-reentrant model
+  1728 ;;
+  1729  07F8                     _I2C_Send_ACK:	
+  1730                           
+  1731                           ;I2C.c: 48: ACKDT = 0;
+  1732                           
+  1733                           ; Regs used in _I2C_Send_ACK: []
+  1734  07F8  1683               	bsf	3,5	;RP0=1, select bank1
+  1735  07F9  1291               	bcf	17,5
+  1736                           
+  1737                           ;I2C.c: 49: ACKEN = 1;
+  1738  07FA  1611               	bsf	17,4
+  1739  07FB                     l662:	
+  1740                           ;I2C.c: 50: while(!SSPIF);
+  1741                           
+  1742  07FB  1283               	bcf	3,5	;RP0=0, select bank0
+  1743  07FC  1D8C               	btfss	12,3
+  1744  07FD  2FFB               	goto	l662
+  1745                           
+  1746                           ;I2C.c: 51: SSPIF = 0;
+  1747  07FE  118C               	bcf	12,3
+  1748  07FF  0008               	return
+  1749  0800                     __end_of_I2C_Send_ACK:	
+  1750                           
+  1751                           	psect	text447
+  1752  05F6                     __ptext447:	
+  1753 ;; =============== function _I2C_Start ends ============
+  1754                           
+  1755                           
+  1756 ;; *************** function _InitI2C *****************
+  1757 ;; Defined at:
+  1758 ;;		line 7 in file "C:\Users\Saeed\Desktop\PIC16F877 EEPROM 24LC64 Code\Code\I2C.c"
+  1759 ;; Parameters:    Size  Location     Type
+  1760 ;;		None
+  1761 ;; Auto vars:     Size  Location     Type
+  1762 ;;		None
+  1763 ;; Return value:  Size  Location     Type
+  1764 ;;		None               void
+  1765 ;; Registers used:
+  1766 ;;		wreg
+  1767 ;; Tracked objects:
+  1768 ;;		On entry : 0/0
+  1769 ;;		On exit  : 60/0
+  1770 ;;		Unchanged: FFF9F/0
+  1771 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1772 ;;      Params:         0       0       0       0       0
+  1773 ;;      Locals:         0       0       0       0       0
+  1774 ;;      Temps:          0       0       0       0       0
+  1775 ;;      Totals:         0       0       0       0       0
+  1776 ;;Total ram usage:        0 bytes
+  1777 ;; Hardware stack levels used:    1
+  1778 ;; This function calls:
+  1779 ;;		Nothing
+  1780 ;; This function is called by:
+  1781 ;;		_main
+  1782 ;; This function uses a non-reentrant model
+  1783 ;;
+  1784  05F6                     _InitI2C:	
+  1785                           
+  1786                           ;I2C.c: 8: TRISC4 = 1;
+  1787                           
+  1788                           ; Regs used in _InitI2C: [wreg]
+  1789  05F6  1683               	bsf	3,5	;RP0=1, select bank1
+  1790  05F7  1303               	bcf	3,6	;RP1=0, select bank1
+  1791  05F8  3031               	movlw	49
+  1792  05F9  1607               	bsf	7,4
+  1793                           
+  1794                           ;I2C.c: 9: TRISC3 = 1;
+  1795  05FA  1587               	bsf	7,3
+  1796                           
+  1797                           ;I2C.c: 11: SSPADD = ((20000000/4000)/100) - 1;
+  1798  05FB  0093               	movwf	19	;volatile
+  1799                           
+  1800                           ;I2C.c: 12: SSPSTAT = 0x80;
+  1801  05FC  3080               	movlw	128
+  1802  05FD  0094               	movwf	20	;volatile
+  1803                           
+  1804                           ;I2C.c: 13: SSPCON = 0x28;
+  1805  05FE  3028               	movlw	40
+  1806  05FF  1283               	bcf	3,5	;RP0=0, select bank0
+  1807  0600  0094               	movwf	20	;volatile
+  1808  0601  0008               	return
+  1809  0602                     __end_of_InitI2C:	
+  1810                           
+  1811                           	psect	text448
+  1812  0000                     __ptext448:	
+  1813 ;; =============== function _InitI2C ends ============
+  1814                           
+  1815  007E                     btemp	set	126	;btemp
+  1816  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Dec 15 17:50:11 2012
+
+                    __size_of_I2C_Start 0007                             main@RxArray 0024  
+                           main@TxArray 0020                                     l641 0000  
+                                   l650 07D5                                     l644 07DC  
+                                   l653 0000                                     l662 07FB  
+                                   l647 0000                                     l671 0000  
+                                   l656 07EB                                     l680 07E3  
+                                   l665 0000                                     l674 07C9  
+                                   l659 0000                                     l683 0000  
+                                   l668 07F3                                     _RB0 0030  
+                                   _RB1 0031                                     _RB4 0034  
+                                   _RB5 0035                                     _RB6 0036  
+                                   _RB7 0037                                     u307 069A  
+                                   u317 06A8                                     u327 06B7  
+                                   _PEN 048A                                     u265 0773  
+                                   u337 06C7                                     u347 06DF  
+                                   u357 06EA                                     u285 07AF  
+                                   u297 0689                                     _SEN 0488  
+                  __size_of_I2C_ReStart 0007                                     fsr0 0004  
+                                   indf 0000                      I2C_Write_Byte@Byte 0070  
+    Write_Byte_To_24LC64_EEPROM@Address 0071                                    l2004 066A  
+                                  l1332 0000                                    l1326 0000  
+                                  l1335 0000                                    l1329 0000  
+                                  l4011 0000                                    l4003 0756  
+                                  l4013 076A                                    l4005 0760  
+                                  l4021 0786                                    l4101 0000  
+                                  l4015 0782                                    l4007 0000  
+                                  l4031 0000                                    l4023 0790  
+                                  l4103 0000                                    l4111 0000  
+                                  l4041 07C1                                    l4025 0000  
+                                  l4017 0000                                    l4105 0000  
+                                  l4121 0000                                    l4113 0000  
+                                  l4035 0000                                    l4027 0000  
+                                  l4051 0000                                    l4043 0000  
+                                  l4131 0000                                    l4123 0000  
+                                  l4115 0000                                    l4107 0000  
+                                  l4037 0000                                    l4029 0000  
+                                  l4053 0000                                    l4045 0000  
+                                  l4061 0000                                    l4133 0000  
+                                  l4125 0000                                    l4117 0000  
+                                  l4109 0000                                    l4039 07A9  
+                                  l4047 0000                                    l4063 0000  
+                                  l4055 0000                                    l4071 0000  
+                                  l4127 0000                                    l4119 0000  
+                                  l4049 0000                                    l4065 0000  
+                                  l4057 0000                                    l4081 0000  
+                                  l4073 0000                                    l4129 0000  
+                                  l4059 0000                                    l4091 0000  
+                                  l4083 0000                                    l4075 0000  
+                                  l4067 0000                                    l4093 0000  
+                                  l4085 0000                                    l4077 0000  
+                                  l4069 0000                                    l2670 0000  
+                                  l4095 0000                                    l4087 0000  
+                                  l4079 0000                                    l2664 0000  
+                                  l4097 0000                                    l4089 0000  
+                                  l4099 0000                                    l2679 0000  
+                                  l2688 0000                                    l3931 0000  
+                                  l3933 0000                                    l3941 0000  
+                                  l3935 0000                                    l3943 0000  
+                                  l3937 0000                                    l3945 0000  
+                                  l3953 0000                                    l3961 0000  
+                                  l3939 07E9                                    l3955 0000  
+                                  l3963 0000                                    l3971 0720  
+                                  l3949 07D1                                    l3973 0000  
+                                  l3965 0000                                    l3981 0730  
+                                  l3959 06DA                                    l3991 0000  
+                                  l3983 073A                                    l3975 0000  
+                                  l3969 0716                                    l3993 0000  
+                                  l3985 0000                                    l3977 0000  
+                                  l3995 0000                                    l3987 0000  
+                                  l3989 0000                                    l3999 0000  
+                                  _RCEN 048B                                    _RSEN 0489  
+    Read_Bytes_From_24LC64_EEPROM@pData 0073                                    _main 0602  
+                                  btemp 007E                        __end_of_I2C_Stop 07F0  
+                 __size_of_I2C_Send_ACK 0008                                    start 0000  
+          ?_Write_Page_To_24LC64_EEPROM 0071                         __end_of_InitI2C 0602  
+                       __end_of_InitLCD 06DA         ??_Read_Bytes_From_24LC64_EEPROM 0076  
+   Write_Byte_To_24LC64_EEPROM@DataByte 0073                                   ?_main 0070  
+                                 _ACKEN 048C                                   _ACKDT 048D  
+                                 _PORTB 0006                                   _SSPIF 0063  
+                __size_of_I2C_Read_Byte 0008                            _I2C_Send_ACK 07F8  
+                     __end_of_I2C_Start 07E1     __end_of_Write_Page_To_24LC64_EEPROM 0783  
+           _Write_Page_To_24LC64_EEPROM 0753                  __size_of_I2C_Send_NACK 0008  
+                                 status 0003                 __size_of_WriteDataToLCD 0011  
+                                 wtemp0 007E                         _ToggleEpinOfLCD 06DA  
+         ??_Write_Page_To_24LC64_EEPROM 0075                            __end_of_main 066B  
+                                ??_main 0079                                  _SSPADD 0093  
+                                _TRISB0 0430                                  _TRISB1 0431  
+                                _TRISB4 0434                                  _TRISC3 043B  
+                                _TRISB5 0435                                  _TRISC4 043C  
+                                _TRISB6 0436                                  _TRISB7 0437  
+                                _SSPCON 0014                                  _SSPBUF 0013  
+                             ??_InitI2C 0070                               ??_InitLCD 0073  
+                         _I2C_Read_Byte 07E1          Read_Bytes_From_24LC64_EEPROM@i 0077  
+    Write_Page_To_24LC64_EEPROM@Address 0071  Read_Bytes_From_24LC64_EEPROM@NoOfBytes 0074  
+                         _I2C_Send_NACK 07F0   __end_of_Read_Bytes_From_24LC64_EEPROM 07C5  
+__size_of_Read_Bytes_From_24LC64_EEPROM 0042           _Read_Bytes_From_24LC64_EEPROM 0783  
+                             ?_I2C_Stop 0070                 __end_of_ToggleEpinOfLCD 06F0  
+                        ?_I2C_Read_Byte 0070                          __pcstackCOMMON 0070  
+                          __pidataBANK0 0000                          ?_I2C_Send_NACK 0070  
+              WriteCommandToLCD@Command 0072                              ??_I2C_Stop 0070  
+                        _WriteDataToLCD 066B                              __pmaintext 0602  
+                 WriteDataToLCD@LCDChar 0072                 __size_of_I2C_Write_Byte 000E  
+                               _ACKSTAT 048E                           ??_I2C_ReStart 0070  
+                               _SSPSTAT 0094                  __end_of_WriteDataToLCD 067C  
+                      ?_ToggleEpinOfLCD 0070                                 _InitI2C 05F6  
+                               _InitLCD 067C                               _I2C_Start 07DA  
+          Write_Page_To_24LC64_EEPROM@i 0077                         ??_I2C_Read_Byte 0070  
+                       ??_I2C_Send_NACK 0070    __end_of_Read_Byte_From_24LC64_EEPROM 0753  
+ __size_of_Read_Byte_From_24LC64_EEPROM 0026            _Read_Byte_From_24LC64_EEPROM 072D  
+                   __end_of_I2C_ReStart 07DA                    end_of_initialization 05F2  
+                       ?_WriteDataToLCD 0070                              ?_I2C_Start 0070  
+  Write_Page_To_24LC64_EEPROM@NoOfBytes 0074           ?_Read_Byte_From_24LC64_EEPROM 0071  
+  __size_of_Write_Byte_To_24LC64_EEPROM 001A                       __size_of_I2C_Stop 0007  
+                            main@RxByte 0028                          _I2C_Write_Byte 07C5  
+                           _I2C_ReStart 07D3                     start_initialization 05EB  
+                           ??_I2C_Start 0070                  __end_of_I2C_Write_Byte 07D3  
+                           __pdataBANK0 0029        Write_Page_To_24LC64_EEPROM@pData 0073  
+                         __pcstackBANK0 0020          ??_Read_Byte_From_24LC64_EEPROM 0073  
+                         ?_I2C_Send_ACK 0070                                ?_InitI2C 0070  
+                              ?_InitLCD 0070                         ?_I2C_Write_Byte 0070  
+                             __ptext440 07E1                               __ptext432 067C  
+                             __ptext441 07C5                               __ptext433 066B  
+                             __ptext442 07F0                               __ptext434 06F0  
+                             __ptext443 07F8                               __ptext435 0783  
+                             __ptext444 07E9                               __ptext436 0753  
+                             __ptext445 07D3                               __ptext437 072D  
+                             __ptext446 07DA                               __ptext438 0713  
+                             __ptext447 05F6                               __ptext439 06DA  
+                             __ptext448 0000                        ??_WriteDataToLCD 0072  
+                              _I2C_Stop 07E9                          ??_I2C_Send_ACK 0070  
+          ?_Write_Byte_To_24LC64_EEPROM 0071                   __end_of_I2C_Read_Byte 07E9  
+              __size_of_ToggleEpinOfLCD 0016                               main@F1062 0029  
+                 __end_of_I2C_Send_NACK 07F8    Read_Bytes_From_24LC64_EEPROM@Address 0071  
+                     _WriteCommandToLCD 06F0     __end_of_Write_Byte_To_24LC64_EEPROM 072D  
+           _Write_Byte_To_24LC64_EEPROM 0713          ?_Read_Bytes_From_24LC64_EEPROM 0071  
+      Read_Byte_From_24LC64_EEPROM@Byte 0073                      ?_WriteCommandToLCD 0070  
+                      __size_of_InitI2C 000C                        __size_of_InitLCD 005E  
+         ??_Write_Byte_To_24LC64_EEPROM 0074                     ??_WriteCommandToLCD 0072  
+                          ?_I2C_ReStart 0070    __size_of_Write_Page_To_24LC64_EEPROM 0030  
+   Read_Byte_From_24LC64_EEPROM@Address 0071               __end_of_WriteCommandToLCD 0702  
+                         __size_of_main 0069                    __end_of_I2C_Send_ACK 0800  
+                     ??_ToggleEpinOfLCD 0070                        ??_I2C_Write_Byte 0070  
+            __size_of_WriteCommandToLCD 0012  

@@ -1,0 +1,12 @@
+_delay: CODE, 274 0 52
+_display: CODE, 220 0 54
+i1_lcddata: CODE, 517 0 20
+_main: CODE, 21 0 142
+_lcdcmd: CODE, 497 0 20
+_TXS: CODE, 376 0 48
+_uart_init: CODE, 537 0 17
+_receive: CODE, 163 0 57
+_lcddata: CODE, 477 0 20
+_TX: CODE, 554 0 14
+i1_delay: CODE, 326 0 50
+Total: 494

@@ -1,0 +1,618 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Tue Oct 28 12:44:09 2014
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNCALL	_main,_water_level
+    43                           	FNROOT	_main
+    44                           	global	_CARRY
+    45                           psect	text76,local,class=CODE,delta=2
+    46                           global __ptext76
+    47  0000                     __ptext76:
+    48  0018                     _CARRY	set	24
+    49                           	global	_GIE
+    50  005F                     _GIE	set	95
+    51                           	global	_RC0
+    52  0038                     _RC0	set	56
+    53                           	global	_RC1
+    54  0039                     _RC1	set	57
+    55                           	global	_RC2
+    56  003A                     _RC2	set	58
+    57                           	global	_RC3
+    58  003B                     _RC3	set	59
+    59                           	global	_RD2
+    60  0042                     _RD2	set	66
+    61                           	global	_RD3
+    62  0043                     _RD3	set	67
+    63                           	global	_TRISC
+    64  0087                     _TRISC	set	135
+    65                           	global	_TRISD
+    66  0088                     _TRISD	set	136
+    67                           	global	_EEADR
+    68  010D                     _EEADR	set	269
+    69                           	global	_EEDATA
+    70  010C                     _EEDATA	set	268
+    71                           	global	_EECON1
+    72  018C                     _EECON1	set	396
+    73                           	global	_EECON2
+    74  018D                     _EECON2	set	397
+    75                           	global	_RD
+    76  0C60                     _RD	set	3168
+    77                           	global	_WR
+    78  0C61                     _WR	set	3169
+    79                           	global	_WREN
+    80  0C62                     _WREN	set	3170
+    81                           	file	"water level and moisture.as"
+    82                           	line	#
+    83                           psect cinit,class=CODE,delta=2
+    84                           global start_initialization
+    85  0780                     start_initialization:
+    86                           
+    87                           psect cinit,class=CODE,delta=2
+    88                           global end_of_initialization
+    89                           
+    90                           ;End of C runtime variable initialization code
+    91                           
+    92  0780                     end_of_initialization:
+    93  0780  0183               clrf status
+    94  0781  120A  118A  2F9F   ljmp _main	;jump to C main() function
+    95                           psect	cstackCOMMON,class=COMMON,space=1
+    96                           global __pcstackCOMMON
+    97  0070                     __pcstackCOMMON:
+    98                           	global	?_water_level
+    99  0070                     ?_water_level:	; 0 bytes @ 0x0
+   100                           	global	??_water_level
+   101  0070                     ??_water_level:	; 0 bytes @ 0x0
+   102                           	global	?_main
+   103  0070                     ?_main:	; 0 bytes @ 0x0
+   104                           	global	??_main
+   105  0070                     ??_main:	; 0 bytes @ 0x0
+   106                           	global	main@i
+   107  0070                     main@i:	; 2 bytes @ 0x0
+   108  0070                     	ds	2
+   109                           	global	main@j
+   110  0072                     main@j:	; 2 bytes @ 0x2
+   111  0072                     	ds	2
+   112 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   113 ;;Auto spaces:   Size  Autos    Used
+   114 ;; COMMON          14      4       4
+   115 ;; BANK0           80      0       0
+   116 ;; BANK1           80      0       0
+   117 ;; BANK3           96      0       0
+   118 ;; BANK2           96      0       0
+   119                           
+   120 ;;
+   121 ;; Pointer list with targets:
+   122                           
+   123                           
+   124                           
+   125 ;;
+   126 ;; Critical Paths under _main in COMMON
+   127 ;;
+   128 ;;   None.
+   129 ;;
+   130 ;; Critical Paths under _main in BANK0
+   131 ;;
+   132 ;;   None.
+   133 ;;
+   134 ;; Critical Paths under _main in BANK1
+   135 ;;
+   136 ;;   None.
+   137 ;;
+   138 ;; Critical Paths under _main in BANK3
+   139 ;;
+   140 ;;   None.
+   141 ;;
+   142 ;; Critical Paths under _main in BANK2
+   143 ;;
+   144 ;;   None.
+   145                           
+   146 ;;
+   147 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   148 ;;
+   149                           
+   150 ;;
+   151 ;;Call Graph Tables:
+   152 ;;
+   153 ;; ---------------------------------------------------------------------------------
+   154 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   155 ;; ---------------------------------------------------------------------------------
+   156 ;; (0) _main                                                 4     4      0      60
+   157 ;;                                              0 COMMON     4     4      0
+   158 ;;                        _water_level
+   159 ;; ---------------------------------------------------------------------------------
+   160 ;; (1) _water_level                                          0     0      0       0
+   161 ;; ---------------------------------------------------------------------------------
+   162 ;; Estimated maximum stack depth 1
+   163 ;; ---------------------------------------------------------------------------------
+   164                           
+   165 ;; Call Graph Graphs:
+   166                           
+   167 ;; _main (ROOT)
+   168 ;;   _water_level
+   169 ;;
+   170                           
+   171 ;; Address spaces:
+   172                           
+   173 ;;Name               Size   Autos  Total    Cost      Usage
+   174 ;;BITCOMMON            E      0       0       0        0.0%
+   175 ;;EEDATA             100      0       0       0        0.0%
+   176 ;;NULL                 0      0       0       0        0.0%
+   177 ;;CODE                 0      0       0       0        0.0%
+   178 ;;COMMON               E      4       4       1       28.6%
+   179 ;;BITSFR0              0      0       0       1        0.0%
+   180 ;;SFR0                 0      0       0       1        0.0%
+   181 ;;BITSFR1              0      0       0       2        0.0%
+   182 ;;SFR1                 0      0       0       2        0.0%
+   183 ;;STACK                0      0       1       2        0.0%
+   184 ;;ABS                  0      0       0       3        0.0%
+   185 ;;BITBANK0            50      0       0       4        0.0%
+   186 ;;BITSFR3              0      0       0       4        0.0%
+   187 ;;SFR3                 0      0       0       4        0.0%
+   188 ;;BANK0               50      0       0       5        0.0%
+   189 ;;BITSFR2              0      0       0       5        0.0%
+   190 ;;SFR2                 0      0       0       5        0.0%
+   191 ;;BITBANK1            50      0       0       6        0.0%
+   192 ;;BANK1               50      0       0       7        0.0%
+   193 ;;BITBANK3            60      0       0       8        0.0%
+   194 ;;BANK3               60      0       0       9        0.0%
+   195 ;;BITBANK2            60      0       0      10        0.0%
+   196 ;;BANK2               60      0       0      11        0.0%
+   197 ;;DATA                 0      0       0      12        0.0%
+   198                           
+   199                           	global	_main
+   200                           psect	maintext,global,class=CODE,delta=2
+   201                           global __pmaintext
+   202  079F                     __pmaintext:
+   203                           
+   204 ;; *************** function _main *****************
+   205 ;; Defined at:
+   206 ;;		line 12 in file "F:\pic projects\water level and moisture\water level.c"
+   207 ;; Parameters:    Size  Location     Type
+   208 ;;		None
+   209 ;; Auto vars:     Size  Location     Type
+   210 ;;  j               2    2[COMMON] unsigned int 
+   211 ;;  i               2    0[COMMON] unsigned int 
+   212 ;; Return value:  Size  Location     Type
+   213 ;;		None               void
+   214 ;; Registers used:
+   215 ;;		wreg, status,2, status,0, pclath, cstack
+   216 ;; Tracked objects:
+   217 ;;		On entry : 17F/0
+   218 ;;		On exit  : 0/0
+   219 ;;		Unchanged: 0/0
+   220 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   221 ;;      Params:         0       0       0       0       0
+   222 ;;      Locals:         4       0       0       0       0
+   223 ;;      Temps:          0       0       0       0       0
+   224 ;;      Totals:         4       0       0       0       0
+   225 ;;Total ram usage:        4 bytes
+   226 ;; Hardware stack levels required when called:    1
+   227 ;; This function calls:
+   228 ;;		_water_level
+   229 ;; This function is called by:
+   230 ;;		Startup code after reset
+   231 ;; This function uses a non-reentrant model
+   232 ;;
+   233                           psect	maintext
+   234                           	file	"F:\pic projects\water level and moisture\water level.c"
+   235                           	line	12
+   236                           	global	__size_of_main
+   237  0061                     	__size_of_main	equ	__end_of_main-_main
+   238                           	
+   239  079F                     _main:	
+   240                           	opt	stack 7
+   241                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   242                           	line	15
+   243                           	
+   244  079F                     l2619:	
+   245                           ;water level.c: 14: unsigned int i,j;
+   246                           ;water level.c: 15: TRISC=0xff;
+   247  079F  30FF               	movlw	(0FFh)
+   248  07A0  1683               	bsf	status, 5	;RP0=1, select bank1
+   249  07A1  1303               	bcf	status, 6	;RP1=0, select bank1
+   250  07A2  0087               	movwf	(135)^080h	;volatile
+   251                           	line	16
+   252                           	
+   253  07A3                     l2621:	
+   254                           ;water level.c: 16: TRISD=0;
+   255  07A3  0188               	clrf	(136)^080h	;volatile
+   256                           	line	17
+   257                           	
+   258  07A4                     l2623:	
+   259                           ;water level.c: 17: RD2 = 0;
+   260  07A4  1283               	bcf	status, 5	;RP0=0, select bank0
+   261  07A5  1303               	bcf	status, 6	;RP1=0, select bank0
+   262  07A6  1108               	bcf	(66/8),(66)&7
+   263                           	line	18
+   264                           	
+   265  07A7                     l2625:	
+   266                           ;water level.c: 18: RD3=0;
+   267  07A7  1188               	bcf	(67/8),(67)&7
+   268  07A8  2FA9               	goto	l2627
+   269                           	line	19
+   270                           ;water level.c: 19: while(1)
+   271                           	
+   272  07A9                     l687:	
+   273                           	line	22
+   274                           	
+   275  07A9                     l2627:	
+   276                           ;water level.c: 20: {
+   277                           ;water level.c: 22: if (RC3==0)
+   278  07A9  1283               	bcf	status, 5	;RP0=0, select bank0
+   279  07AA  1303               	bcf	status, 6	;RP1=0, select bank0
+   280  07AB  1987               	btfsc	(59/8),(59)&7
+   281  07AC  2FAE               	goto	u2271
+   282  07AD  2FAF               	goto	u2270
+   283  07AE                     u2271:
+   284  07AE  2FF2               	goto	l2651
+   285  07AF                     u2270:
+   286                           	line	26
+   287                           	
+   288  07AF                     l2629:	
+   289                           ;water level.c: 24: {
+   290                           ;water level.c: 26: for(i=0;i<500;i++)
+   291  07AF  01F0               	clrf	(main@i)
+   292  07B0  01F1               	clrf	(main@i+1)
+   293                           	
+   294  07B1                     l2631:	
+   295  07B1  3001               	movlw	high(01F4h)
+   296  07B2  0271               	subwf	(main@i+1),w
+   297  07B3  30F4               	movlw	low(01F4h)
+   298  07B4  1903               	skipnz
+   299  07B5  0270               	subwf	(main@i),w
+   300  07B6  1C03               	skipc
+   301  07B7  2FB9               	goto	u2281
+   302  07B8  2FBA               	goto	u2280
+   303  07B9                     u2281:
+   304  07B9  2FBC               	goto	l2635
+   305  07BA                     u2280:
+   306  07BA  2FA9               	goto	l2627
+   307                           	
+   308  07BB                     l2633:	
+   309  07BB  2FA9               	goto	l2627
+   310                           	line	27
+   311                           	
+   312  07BC                     l689:	
+   313                           	line	28
+   314                           	
+   315  07BC                     l2635:	
+   316                           ;water level.c: 27: {
+   317                           ;water level.c: 28: for(j=0;j<1500;j++)
+   318  07BC  01F2               	clrf	(main@j)
+   319  07BD  01F3               	clrf	(main@j+1)
+   320                           	
+   321  07BE                     l2637:	
+   322  07BE  3005               	movlw	high(05DCh)
+   323  07BF  0273               	subwf	(main@j+1),w
+   324  07C0  30DC               	movlw	low(05DCh)
+   325  07C1  1903               	skipnz
+   326  07C2  0272               	subwf	(main@j),w
+   327  07C3  1C03               	skipc
+   328  07C4  2FC6               	goto	u2291
+   329  07C5  2FC7               	goto	u2290
+   330  07C6                     u2291:
+   331  07C6  2FC9               	goto	l2641
+   332  07C7                     u2290:
+   333  07C7  2FE1               	goto	l2649
+   334                           	
+   335  07C8                     l2639:	
+   336  07C8  2FE1               	goto	l2649
+   337                           	line	29
+   338                           	
+   339  07C9                     l691:	
+   340                           	line	30
+   341                           	
+   342  07C9                     l2641:	
+   343                           ;water level.c: 29: {
+   344                           ;water level.c: 30: water_level();
+   345  07C9  120A  118A  2784   	fcall	_water_level
+              120A  118A         
+   346                           	line	31
+   347                           	
+   348  07CE                     l2643:	
+   349                           ;water level.c: 31: RD3 = 1;
+   350  07CE  1283               	bcf	status, 5	;RP0=0, select bank0
+   351  07CF  1303               	bcf	status, 6	;RP1=0, select bank0
+   352  07D0  1588               	bsf	(67/8),(67)&7
+   353                           	line	28
+   354                           	
+   355  07D1                     l2645:	
+   356  07D1  3001               	movlw	low(01h)
+   357  07D2  07F2               	addwf	(main@j),f
+   358  07D3  1803               	skipnc
+   359  07D4  0AF3               	incf	(main@j+1),f
+   360  07D5  3000               	movlw	high(01h)
+   361  07D6  07F3               	addwf	(main@j+1),f
+   362                           	
+   363  07D7                     l2647:	
+   364  07D7  3005               	movlw	high(05DCh)
+   365  07D8  0273               	subwf	(main@j+1),w
+   366  07D9  30DC               	movlw	low(05DCh)
+   367  07DA  1903               	skipnz
+   368  07DB  0272               	subwf	(main@j),w
+   369  07DC  1C03               	skipc
+   370  07DD  2FDF               	goto	u2301
+   371  07DE  2FE0               	goto	u2300
+   372  07DF                     u2301:
+   373  07DF  2FC9               	goto	l2641
+   374  07E0                     u2300:
+   375  07E0  2FE1               	goto	l2649
+   376                           	
+   377  07E1                     l692:	
+   378                           	line	26
+   379                           	
+   380  07E1                     l2649:	
+   381  07E1  3001               	movlw	low(01h)
+   382  07E2  07F0               	addwf	(main@i),f
+   383  07E3  1803               	skipnc
+   384  07E4  0AF1               	incf	(main@i+1),f
+   385  07E5  3000               	movlw	high(01h)
+   386  07E6  07F1               	addwf	(main@i+1),f
+   387  07E7  3001               	movlw	high(01F4h)
+   388  07E8  0271               	subwf	(main@i+1),w
+   389  07E9  30F4               	movlw	low(01F4h)
+   390  07EA  1903               	skipnz
+   391  07EB  0270               	subwf	(main@i),w
+   392  07EC  1C03               	skipc
+   393  07ED  2FEF               	goto	u2311
+   394  07EE  2FF0               	goto	u2310
+   395  07EF                     u2311:
+   396  07EF  2FBC               	goto	l2635
+   397  07F0                     u2310:
+   398  07F0  2FA9               	goto	l2627
+   399                           	
+   400  07F1                     l690:	
+   401                           	line	34
+   402                           ;water level.c: 32: }
+   403                           ;water level.c: 33: }
+   404                           ;water level.c: 34: }
+   405  07F1  2FA9               	goto	l2627
+   406                           	line	35
+   407                           	
+   408  07F2                     l688:	
+   409                           	line	37
+   410                           	
+   411  07F2                     l2651:	
+   412                           ;water level.c: 35: else
+   413                           ;water level.c: 36: {
+   414                           ;water level.c: 37: water_level();
+   415  07F2  120A  118A  2784   	fcall	_water_level
+              120A  118A         
+   416                           	line	38
+   417                           	
+   418  07F7                     l2653:	
+   419                           ;water level.c: 38: RD3=0;
+   420  07F7  1283               	bcf	status, 5	;RP0=0, select bank0
+   421  07F8  1303               	bcf	status, 6	;RP1=0, select bank0
+   422  07F9  1188               	bcf	(67/8),(67)&7
+   423  07FA  2FA9               	goto	l2627
+   424                           	line	39
+   425                           	
+   426  07FB                     l693:	
+   427  07FB  2FA9               	goto	l2627
+   428                           	line	44
+   429                           	
+   430  07FC                     l694:	
+   431                           	line	19
+   432  07FC  2FA9               	goto	l2627
+   433                           	
+   434  07FD                     l695:	
+   435                           	line	48
+   436                           	
+   437  07FD                     l696:	
+   438                           	global	start
+   439  07FD  120A  118A  2800   	ljmp	start
+   440                           	opt stack 0
+   441                           GLOBAL	__end_of_main
+   442  0800                     	__end_of_main:
+   443 ;; =============== function _main ends ============
+   444                           
+   445                           	signat	_main,88
+   446                           	global	_water_level
+   447                           psect	text77,local,class=CODE,delta=2
+   448                           global __ptext77
+   449  0784                     __ptext77:
+   450                           
+   451 ;; *************** function _water_level *****************
+   452 ;; Defined at:
+   453 ;;		line 52 in file "F:\pic projects\water level and moisture\water level.c"
+   454 ;; Parameters:    Size  Location     Type
+   455 ;;		None
+   456 ;; Auto vars:     Size  Location     Type
+   457 ;;		None
+   458 ;; Return value:  Size  Location     Type
+   459 ;;		None               void
+   460 ;; Registers used:
+   461 ;;		None
+   462 ;; Tracked objects:
+   463 ;;		On entry : 0/0
+   464 ;;		On exit  : 0/0
+   465 ;;		Unchanged: 0/0
+   466 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   467 ;;      Params:         0       0       0       0       0
+   468 ;;      Locals:         0       0       0       0       0
+   469 ;;      Temps:          0       0       0       0       0
+   470 ;;      Totals:         0       0       0       0       0
+   471 ;;Total ram usage:        0 bytes
+   472 ;; Hardware stack levels used:    1
+   473 ;; This function calls:
+   474 ;;		Nothing
+   475 ;; This function is called by:
+   476 ;;		_main
+   477 ;; This function uses a non-reentrant model
+   478 ;;
+   479                           psect	text77
+   480                           	file	"F:\pic projects\water level and moisture\water level.c"
+   481                           	line	52
+   482                           	global	__size_of_water_level
+   483  001B                     	__size_of_water_level	equ	__end_of_water_level-_water_level
+   484                           	
+   485  0784                     _water_level:	
+   486                           	opt	stack 7
+   487                           ; Regs used in _water_level: []
+   488                           	line	54
+   489                           	
+   490  0784                     l1749:	
+   491                           ;water level.c: 54: if(RC1==0 && RC2==1)
+   492  0784  1283               	bcf	status, 5	;RP0=0, select bank0
+   493  0785  1303               	bcf	status, 6	;RP1=0, select bank0
+   494  0786  1887               	btfsc	(57/8),(57)&7
+   495  0787  2F89               	goto	u11
+   496  0788  2F8A               	goto	u10
+   497  0789                     u11:
+   498  0789  2F8F               	goto	l699
+   499  078A                     u10:
+   500                           	
+   501  078A                     l1751:	
+   502  078A  1D07               	btfss	(58/8),(58)&7
+   503  078B  2F8D               	goto	u21
+   504  078C  2F8E               	goto	u20
+   505  078D                     u21:
+   506  078D  2F8F               	goto	l699
+   507  078E                     u20:
+   508                           	line	57
+   509                           	
+   510  078E                     l1753:	
+   511                           ;water level.c: 56: {
+   512                           ;water level.c: 57: RD2 = 1;
+   513  078E  1508               	bsf	(66/8),(66)&7
+   514                           	line	59
+   515                           	
+   516  078F                     l699:	
+   517                           	line	60
+   518                           ;water level.c: 59: }
+   519                           ;water level.c: 60: if (RC1==1 && RC0==1)
+   520  078F  1C87               	btfss	(57/8),(57)&7
+   521  0790  2F92               	goto	u31
+   522  0791  2F93               	goto	u30
+   523  0792                     u31:
+   524  0792  2F98               	goto	l700
+   525  0793                     u30:
+   526                           	
+   527  0793                     l1755:	
+   528  0793  1C07               	btfss	(56/8),(56)&7
+   529  0794  2F96               	goto	u41
+   530  0795  2F97               	goto	u40
+   531  0796                     u41:
+   532  0796  2F98               	goto	l700
+   533  0797                     u40:
+   534                           	line	63
+   535                           	
+   536  0797                     l1757:	
+   537                           ;water level.c: 61: {
+   538                           ;water level.c: 63: RD2 = 0;
+   539  0797  1108               	bcf	(66/8),(66)&7
+   540                           	line	65
+   541                           	
+   542  0798                     l700:	
+   543                           	line	67
+   544                           ;water level.c: 65: }
+   545                           ;water level.c: 67: if(RC2==0)
+   546  0798  1907               	btfsc	(58/8),(58)&7
+   547  0799  2F9B               	goto	u51
+   548  079A  2F9C               	goto	u50
+   549  079B                     u51:
+   550  079B  2F9E               	goto	l702
+   551  079C                     u50:
+   552                           	line	70
+   553                           	
+   554  079C                     l1759:	
+   555                           ;water level.c: 69: {
+   556                           ;water level.c: 70: RD2 = 0;
+   557  079C  1108               	bcf	(66/8),(66)&7
+   558  079D  2F9E               	goto	l702
+   559                           	line	72
+   560                           	
+   561  079E                     l701:	
+   562                           	line	76
+   563                           	
+   564  079E                     l702:	
+   565  079E  0008               	return
+   566                           	opt stack 0
+   567                           GLOBAL	__end_of_water_level
+   568  079F                     	__end_of_water_level:
+   569 ;; =============== function _water_level ends ============
+   570                           
+   571                           	signat	_water_level,88
+   572                           psect	text78,local,class=CODE,delta=2
+   573                           global __ptext78
+   574  0000                     __ptext78:
+   575                           	global	btemp
+   576  007E                     	btemp set 07Eh
+   577                           
+   578                           	DABS	1,126,2	;btemp
+   579                           	global	wtemp0
+   580  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Tue Oct 28 12:44:09 2014
+
+                  _RD 0C60                    u10 078A                    u11 0789                    u20 078E  
+                  u21 078D                    u30 0793                    u31 0792                    u40 0797  
+                  u41 0796                    u50 079C                    u51 079B                    _WR 0C61  
+                 l700 0798                   l701 079E                   l702 079E                   l690 07F1  
+                 l691 07C9                   l692 07E1                   l693 07FB                   l694 07FC  
+                 l695 07FD                   l687 07A9                   l696 07FD                   l688 07F2  
+                 l689 07BC                   l699 078F                   _GIE 005F                   _RC0 0038  
+                 _RC1 0039                   _RC2 003A                   _RC3 003B                   _RD2 0042  
+                 _RD3 0043                  l2621 07A3                  l1751 078A                  l2631 07B1  
+                l2623 07A4                  l1753 078E                  l2641 07C9                  l2633 07BB  
+                l2625 07A7                  l1755 0793                  l2643 07CE                  l2635 07BC  
+                l2651 07F2                  l2627 07A9                  l2619 079F                  l1757 0797  
+                l1749 0784                  l2653 07F7                  l2645 07D1                  l2637 07BE  
+                l2629 07AF                  l1759 079C                  l2647 07D7                  l2639 07C8  
+                l2649 07E1                  u2300 07E0                  u2301 07DF                  u2310 07F0  
+                u2311 07EF                  u2270 07AF                  u2271 07AE                  u2280 07BA  
+                u2281 07B9                  u2290 07C7                  u2291 07C6                  _WREN 0C62  
+                _main 079F                  btemp 007E                  start 0000                 ?_main 0070  
+               _EEADR 010D                 _CARRY 0018                 _TRISC 0087                 _TRISD 0088  
+               main@i 0070                 main@j 0072                 status 0003                 wtemp0 007E  
+        __end_of_main 0800                ??_main 0070                _EEDATA 010C                _EECON1 018C  
+              _EECON2 018D          ?_water_level 0070        __pcstackCOMMON 0070            __pmaintext 079F  
+end_of_initialization 0780  __size_of_water_level 001B   start_initialization 0780         ??_water_level 0070  
+            __ptext76 0000              __ptext77 0784              __ptext78 0000         __size_of_main 0061  
+ __end_of_water_level 079F           _water_level 0784  

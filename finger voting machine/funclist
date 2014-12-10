@@ -1,0 +1,18 @@
+_delay: CODE, 3729 0 52
+_display: CODE, 3836 0 61
+_StorTempl: CODE, 21 0 614
+_Readfinger: CODE, 3627 0 16
+_lcd_init_write: CODE, 2018 0 20
+_main: CODE, 635 0 492
+_lcdcmd: CODE, 4024 0 72
+_errorDisplay: CODE, 1499 0 34
+_storChar1: CODE, 3643 0 16
+_storChar2: CODE, 3659 0 16
+_uart_init: CODE, 3692 0 18
+_SrchFinger: CODE, 1127 0 300
+_receive: CODE, 3781 0 55
+_lcddata: CODE, 1427 0 72
+_Sendstring: CODE, 3959 0 65
+_TX: CODE, 3613 0 14
+_lcd_init: CODE, 1802 0 139
+Total: 2056

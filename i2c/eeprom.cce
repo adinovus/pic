@@ -1,0 +1,6 @@
+Advisory[1207]   : some of the command line options you are using are now obsolete
+Advisory[1208]   : use --help option or refer to the user manual for option details
+Warning[176] F:\pic projects\i2c\eeprom.c 130 : missing newline
+Warning[361] F:\pic projects\i2c\eeprom.c 118 : function declared implicit int
+Warning[361] F:\pic projects\i2c\eeprom.c 126 : function declared implicit int
+Warning[337] F:\pic projects\i2c\eeprom.c 129 : line does not have a newline on the end

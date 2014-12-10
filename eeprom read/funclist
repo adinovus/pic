@@ -1,0 +1,10 @@
+_putch: CODE, 1593 0 12
+_main: CODE, 1841 0 85
+_DelayMs: CODE, 1722 0 53
+_I2CRead: CODE, 1926 0 122
+_WaitMSSP: CODE, 1584 0 9
+_serial_init: CODE, 1605 0 14
+_printf: CODE, 1689 0 33
+_I2CWrite: CODE, 1775 0 66
+_i2c_init: CODE, 1619 0 15
+Total: 409

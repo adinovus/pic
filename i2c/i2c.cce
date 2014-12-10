@@ -1,0 +1,9 @@
+Advisory[1207]   : some of the command line options you are using are now obsolete
+Advisory[1208]   : use --help option or refer to the user manual for option details
+Warning[176] F:\pic projects\i2c\i2c.c 177 : missing newline
+Warning[349] F:\pic projects\i2c\i2c.c 21 : non-prototyped function declaration for "I2CStart"
+Warning[349] F:\pic projects\i2c\i2c.c 34 : non-prototyped function declaration for "I2CStop"
+Warning[349] F:\pic projects\i2c\i2c.c 47 : non-prototyped function declaration for "I2CRestart"
+Warning[349] F:\pic projects\i2c\i2c.c 59 : non-prototyped function declaration for "I2CAck"
+Warning[349] F:\pic projects\i2c\i2c.c 72 : non-prototyped function declaration for "I2CNak"
+Warning[349] F:\pic projects\i2c\i2c.c 85 : non-prototyped function declaration for "I2CWait"
